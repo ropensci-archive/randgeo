@@ -6,7 +6,8 @@
 \alias{randgeo-package}
 \title{Random WKT or GeoJSON}
 \description{
-Random WKT or GeoJSON
+adapted from \url{https://github.com/tmcw/geojson-random} to have a pure
+R implementation
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
