@@ -1,0 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+man-roxygen
+appveyor.yml
+Makefile
+^CONDUCT\.md$
+^\.travis\.yml$
+^cran-comments\.md$
+^README\.Rmd$
+NEWS\.md
+.V8history
