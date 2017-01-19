@@ -20,7 +20,7 @@
 wkt_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
                         bbox = NULL, fmt = 7) {
   assert(fmt, c('numeric', 'integer'))
-  res <- geo_polygon()
+  res <- geo_polygon(count, num_vertices, max_radial_length, bbox)
   unlist(
     lapply(res$features, function(z)
       to_wkt_poly(z$geometry$coordinates[[1]], fmt))

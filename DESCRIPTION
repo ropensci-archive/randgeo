@@ -1,7 +1,7 @@
 Package: randgeo
 Title: Generate Random 'WKT' or 'GeoJSON'
 Description: Generate random 'WKT' or 'GeoJSON'.
-Version: 0.0.5.9110
+Version: 0.0.5.9117
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
