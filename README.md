@@ -5,6 +5,11 @@ randgeo
 
 `rangeo` - random WKT or GeoJSON
 
+just GeoJSON right now, working on WKT
+
+adapted from <https://github.com/tmcw/geojson-random> to have a pure R
+implementation without any dependencies.
+
 ## Install
 
 
@@ -24,7 +29,7 @@ position
 
 ```r
 rg_position()
-#> [1] -83.99849  76.49700
+#> [1] 169.91156  73.14973
 ```
 
 point
@@ -45,7 +50,7 @@ rg_point()
 #> [1] "Point"
 #> 
 #> $features[[1]]$geometry$coordinates
-#> [1]  7.1722073 -0.6132885
+#> [1] 115.61061 -88.96544
 #> 
 #> 
 #> $features[[1]]$properties
@@ -72,37 +77,37 @@ rg_polygon()
 #> $features[[1]]$geometry$coordinates
 #> $features[[1]]$geometry$coordinates[[1]]
 #> $features[[1]]$geometry$coordinates[[1]][[1]]
-#> [1] -48.20348 -57.19427
+#> [1] 92.04712 37.68487
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[2]]
-#> [1] -42.16830 -54.12803
+#> [1] 94.01917 34.92797
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[3]]
-#> [1] -47.59785 -58.22628
+#> [1] 97.53181 27.52851
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[4]]
-#> [1] -40.78863 -61.81966
+#> [1] 91.54321 32.70985
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[5]]
-#> [1] -50.89416 -63.81652
+#> [1] 92.24888 29.80319
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[6]]
-#> [1] -52.07603 -65.96327
+#> [1] 89.66576 27.96953
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[7]]
-#> [1] -52.13817 -63.41672
+#> [1] 86.62088 27.04295
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[8]]
-#> [1] -57.25586 -54.52116
+#> [1] 85.82624 33.20216
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[9]]
-#> [1] -50.05674 -56.74854
+#> [1] 87.41339 35.53933
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[10]]
-#> [1] -48.53619 -55.30959
+#> [1] 91.18717 40.20176
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[11]]
-#> [1] -48.20348 -57.19427
+#> [1] 92.04712 37.68487
 #> 
 #> 
 #> 

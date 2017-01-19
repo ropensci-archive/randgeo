@@ -12,6 +12,11 @@ knitr::opts_chunk$set(
 
 `rangeo` - random WKT or GeoJSON
 
+just GeoJSON right now, working on WKT
+
+adapted from <https://github.com/tmcw/geojson-random> to have a pure R
+implementation without any dependencies.
+
 ## Install
 
 ```{r eval=FALSE}
