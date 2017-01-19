@@ -3,6 +3,8 @@ randgeo
 
 
 
+[![Build Status](https://travis-ci.org/ropensci/randgeo.svg?branch=master)](https://travis-ci.org/ropensci/randgeo)
+
 `rangeo` - random WKT or GeoJSON
 
 just GeoJSON right now, working on WKT
@@ -29,7 +31,7 @@ position
 
 ```r
 rg_position()
-#> [1]  16.62869 -69.13550
+#> [1] 179.05133  14.33627
 ```
 
 point
@@ -50,7 +52,7 @@ rg_point()
 #> [1] "Point"
 #> 
 #> $features[[1]]$geometry$coordinates
-#> [1]  22.38500 -75.36768
+#> [1] -154.76061  -36.35823
 #> 
 #> 
 #> $features[[1]]$properties
@@ -77,37 +79,37 @@ rg_polygon()
 #> $features[[1]]$geometry$coordinates
 #> $features[[1]]$geometry$coordinates[[1]]
 #> $features[[1]]$geometry$coordinates[[1]][[1]]
-#> [1] 156.44869  80.12818
+#> [1] 24.55431 27.93747
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[2]]
-#> [1] 160.56083  78.67403
+#> [1] 21.48499 23.25038
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[3]]
-#> [1] 156.72766  75.52437
+#> [1] 20.70381 20.98045
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[4]]
-#> [1] 156.97577  74.01422
+#> [1] 14.84836 15.33931
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[5]]
-#> [1] 150.6447  72.0022
+#> [1] 15.88339 23.99485
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[6]]
-#> [1] 153.33567  74.80727
+#> [1]  8.732041 17.877866
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[7]]
-#> [1] 153.85309  76.23711
+#> [1] 14.62389 24.77293
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[8]]
-#> [1] 154.08755  77.21572
+#> [1] 14.27064 25.50285
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[9]]
-#> [1] 154.67213  81.92804
+#> [1] 12.18091 27.92743
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[10]]
-#> [1] 155.51821  80.71464
+#> [1] 16.17883 27.54296
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[11]]
-#> [1] 156.44869  80.12818
+#> [1] 24.55431 27.93747
 #> 
 #> 
 #> 

@@ -10,6 +10,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![Build Status](https://travis-ci.org/ropensci/randgeo.svg?branch=master)](https://travis-ci.org/ropensci/randgeo)
+
 `rangeo` - random WKT or GeoJSON
 
 just GeoJSON right now, working on WKT
