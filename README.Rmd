@@ -29,31 +29,45 @@ devtools::install_github("ropensci/randgeo")
 library("randgeo")
 ```
 
-## random GeoJSON
-
-position
+## random position
 
 ```{r}
 rg_position()
 ```
 
+## random GeoJSON
+
 point
 
 ```{r}
-rg_point()
+geo_point()
 ```
 
 polygon
 
 ```{r}
-rg_polygon()
+geo_polygon()
 ```
 
 visualize
 
 ```{r eval=FALSE}
-lawn::view(jsonlite::toJSON(rg_polygon(count = 4), auto_unbox = TRUE))
+lawn::view(jsonlite::toJSON(geo_polygon(count = 4), auto_unbox = TRUE))
 ```
 
 ![map](inst/img/plot.png)
 
+
+## random WKT
+
+point
+
+```{r}
+wkt_point()
+```
+
+polygon
+
+```{r}
+wkt_polygon()
+```

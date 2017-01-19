@@ -1,4 +1,4 @@
-#' Random point
+#' Random GeoJSON point
 #'
 #' @export
 #' @param count (integer/numeric) number of Polygons. Default: 1
@@ -6,10 +6,13 @@
 #' \code{west, south, east, north}. optional
 #' @return GeoJSON; a list with one ore more Points in a FeatureCollection
 #' @examples
-#' rg_point()
-#' rg_point(10)
-#' rg_point(bbox = c(50, 50, 60, 60))
-rg_point <- function(count = 1, bbox = NULL) {
+#' geo_point()
+#' geo_point(10)
+#' geo_point(bbox = c(50, 50, 60, 60))
+geo_point <- function(count = 1, bbox = NULL) {
+  assert(count, c('numeric', 'integer'))
+  assert(bbox, c('numeric', 'integer'))
+
   features <- list()
   for (i in seq_len(count)) {
     features[[i]] <- feature(

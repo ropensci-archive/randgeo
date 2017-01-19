@@ -1,4 +1,4 @@
-#' Random polygon
+#' Random GeoJSON polygon
 #'
 #' @export
 #' @param count (integer/numeric) number of Polygons. Default: 1
@@ -11,11 +11,16 @@
 #' \code{west, south, east, north}. optional
 #' @return GeoJSON; a list with one ore more Polygons in a FeatureCollection
 #' @examples
-#' rg_polygon()
-#' rg_polygon(10)
-#' rg_polygon(bbox = c(50, 50, 60, 60))
-rg_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
+#' geo_polygon()
+#' geo_polygon(10)
+#' geo_polygon(bbox = c(50, 50, 60, 60))
+geo_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
                        bbox = NULL) {
+  assert(count, c('numeric', 'integer'))
+  assert(num_vertices, c('numeric', 'integer'))
+  assert(max_radial_length, c('numeric', 'integer'))
+  assert(bbox, c('numeric', 'integer'))
+
   features <- list()
   for (i in seq_len(count)) {
     vertices <- list()
