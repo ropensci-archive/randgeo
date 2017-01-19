@@ -12,11 +12,11 @@
 #' @param fmt (integer/numeric) number of digits. Default: 7
 #' @return WKT; a character vector with one or more POLYGON strings
 #' @examples
-#' wkt_polygon(what = "wkt")
-#' wkt_polygon(num_vertices = 3, what = "wkt")
-#' wkt_polygon(num_vertices = 4, what = "wkt")
-#' wkt_polygon(num_vertices = 100, what = "wkt")
-#' wkt_polygon(10, what = "wkt")
+#' wkt_polygon()
+#' wkt_polygon(num_vertices = 3)
+#' wkt_polygon(num_vertices = 4)
+#' wkt_polygon(num_vertices = 100)
+#' wkt_polygon(10)
 wkt_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
                         bbox = NULL, fmt = 7) {
   assert(fmt, c('numeric', 'integer'))

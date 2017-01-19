@@ -29,10 +29,10 @@ WKT; a character vector with one or more POLYGON strings
 Random GeoJSON polygon
 }
 \examples{
-wkt_polygon(what = "wkt")
-wkt_polygon(num_vertices = 3, what = "wkt")
-wkt_polygon(num_vertices = 4, what = "wkt")
-wkt_polygon(num_vertices = 100, what = "wkt")
-wkt_polygon(10, what = "wkt")
+wkt_polygon()
+wkt_polygon(num_vertices = 3)
+wkt_polygon(num_vertices = 4)
+wkt_polygon(num_vertices = 100)
+wkt_polygon(10)
 }
 

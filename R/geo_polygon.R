@@ -24,7 +24,7 @@ geo_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
   features <- list()
   for (i in seq_len(count)) {
     vertices <- list()
-    circle_offsets <- runif(num_vertices)
+    circle_offsets <- stats::runif(num_vertices)
     circle_offsets <- cumsum(circle_offsets)
     vertices <- lapply(circle_offsets, scale_offsets,
                        circle_offsets, max_radial_length)
@@ -41,7 +41,7 @@ geo_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
 
 scale_offsets <- function(x, circle_offsets, max_radial_length) {
   x <- (x * 2 * pi) / circle_offsets[length(circle_offsets)]
-  radial_scaler <- runif(1)
+  radial_scaler <- stats::runif(1)
   c(
     radial_scaler * max_radial_length * sin(x),
     radial_scaler * max_radial_length * cos(x)
