@@ -46,3 +46,12 @@ polygon
 ```{r}
 rg_polygon()
 ```
+
+visualize
+
+```{r eval=FALSE}
+lawn::view(jsonlite::toJSON(rg_polygon(count = 4), auto_unbox = TRUE))
+```
+
+![map](inst/img/plot.png)
+

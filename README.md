@@ -29,7 +29,7 @@ position
 
 ```r
 rg_position()
-#> [1] 169.91156  73.14973
+#> [1]  16.62869 -69.13550
 ```
 
 point
@@ -50,7 +50,7 @@ rg_point()
 #> [1] "Point"
 #> 
 #> $features[[1]]$geometry$coordinates
-#> [1] 115.61061 -88.96544
+#> [1]  22.38500 -75.36768
 #> 
 #> 
 #> $features[[1]]$properties
@@ -77,37 +77,37 @@ rg_polygon()
 #> $features[[1]]$geometry$coordinates
 #> $features[[1]]$geometry$coordinates[[1]]
 #> $features[[1]]$geometry$coordinates[[1]][[1]]
-#> [1] 92.04712 37.68487
+#> [1] 156.44869  80.12818
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[2]]
-#> [1] 94.01917 34.92797
+#> [1] 160.56083  78.67403
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[3]]
-#> [1] 97.53181 27.52851
+#> [1] 156.72766  75.52437
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[4]]
-#> [1] 91.54321 32.70985
+#> [1] 156.97577  74.01422
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[5]]
-#> [1] 92.24888 29.80319
+#> [1] 150.6447  72.0022
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[6]]
-#> [1] 89.66576 27.96953
+#> [1] 153.33567  74.80727
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[7]]
-#> [1] 86.62088 27.04295
+#> [1] 153.85309  76.23711
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[8]]
-#> [1] 85.82624 33.20216
+#> [1] 154.08755  77.21572
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[9]]
-#> [1] 87.41339 35.53933
+#> [1] 154.67213  81.92804
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[10]]
-#> [1] 91.18717 40.20176
+#> [1] 155.51821  80.71464
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[11]]
-#> [1] 92.04712 37.68487
+#> [1] 156.44869  80.12818
 #> 
 #> 
 #> 
@@ -115,3 +115,13 @@ rg_polygon()
 #> $features[[1]]$properties
 #> list()
 ```
+
+visualize
+
+
+```r
+lawn::view(jsonlite::toJSON(rg_polygon(count = 4), auto_unbox = TRUE))
+```
+
+![map](inst/img/plot.png)
+
