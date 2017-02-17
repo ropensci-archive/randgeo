@@ -1,7 +1,7 @@
 Package: randgeo
 Title: Generate Random 'WKT' or 'GeoJSON'
 Description: Generate random 'WKT' or 'GeoJSON'.
-Version: 0.0.6.9100
+Version: 0.0.9.92100
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
@@ -9,6 +9,7 @@ LazyData: true
 URL: https://github.com/ropensci/randgeo
 BugReports: https://github.com/ropensci/randgeo/issues
 Suggests:
+    roxgen2 (>= 6.0.1),
     testthat,
     covr
 RoxygenNote: 6.0.1
