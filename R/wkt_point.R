@@ -14,6 +14,8 @@
 #' wkt_point(fmt = 5)
 #' wkt_point(fmt = 6)
 #' wkt_point(fmt = 7)
+#'
+#' wkt_point(bbox = c(50, 50, 60, 60))
 wkt_point <- function(count = 1, bbox = NULL, fmt = 7) {
   assert(fmt, c('numeric', 'integer'))
 

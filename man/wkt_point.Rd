@@ -28,4 +28,6 @@ wkt_point(100)
 wkt_point(fmt = 5)
 wkt_point(fmt = 6)
 wkt_point(fmt = 7)
+
+wkt_point(bbox = c(50, 50, 60, 60))
 }

@@ -17,6 +17,7 @@
 #' wkt_polygon(num_vertices = 4)
 #' wkt_polygon(num_vertices = 100)
 #' wkt_polygon(10)
+#' wkt_polygon(bbox = c(50, 50, 60, 60))
 wkt_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
                         bbox = NULL, fmt = 7) {
   assert(fmt, c('numeric', 'integer'))

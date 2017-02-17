@@ -1,0 +1,197 @@
+---
+title: "Introduction to the randgeo package"
+author: "Scott Chamberlain"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: readable
+vignette: >
+  %\VignetteIndexEntry{Introduction to the randgeo package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r echo=FALSE}
+library("knitr")
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
+   lines <- options$output.lines
+   if (is.null(lines)) {
+     return(hook_output(x, options))  # pass to default hook
+   }
+   x <- unlist(strsplit(x, "\n"))
+   more <- "..."
+   if (length(lines)==1) {        # first n lines
+     if (length(x) > lines) {
+       # truncate the output, but add ....
+       x <- c(head(x, lines), more)
+     }
+   } else {
+     x <- c(if (abs(lines[1])>1) more else NULL,
+            x[lines],
+            if (length(x)>lines[abs(length(lines))]) more else NULL
+           )
+   }
+   # paste these lines together
+   x <- paste(c(x, ""), collapse = "\n")
+   hook_output(x, options)
+ })
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`randgeo` is a no dependency R package for generating random lat/long positions, or
+random WKT or GeoJSON points or polygons.
+
+The benefit of no dependencies is that it can easily be used in other packages 
+without any pain.
+
+This package is adapted from Javascript's <https://github.com/tmcw/geojson-random>
+
+## Install
+
+Stable `randgeo` version from CRAN
+
+```{r eval=FALSE}
+install.packages("randgeo")
+```
+
+Or, the development version from Github
+
+```{r eval=FALSE}
+devtools::install_github("ropensci/randgeo")
+```
+
+```{r}
+library("randgeo")
+```
+
+## random position
+
+```{r}
+rg_position()
+```
+
+Many positions
+
+```{r}
+rg_position(10)
+```
+
+Random position within a bounding box
+
+```{r}
+rg_position(bbox = c(50, 50, 60, 60))
+```
+
+## Well-known text
+
+### random points
+
+A single point
+
+```{r}
+wkt_point()
+```
+
+Many points
+
+```{r}
+wkt_point(count = 10)
+```
+
+Within a bounding box
+
+```{r}
+wkt_point(bbox = c(50, 50, 60, 60))
+```
+
+The `fmt` parameter controls how many decimal points
+
+```{r}
+wkt_point()
+wkt_point(fmt = 10)
+```
+
+
+### random polygons
+
+```{r}
+wkt_polygon()
+```
+
+Adjust number of vertices (Default: 10)
+
+```{r}
+wkt_polygon(num_vertices = 4)
+```
+
+Adjust maximum number of decimal degrees latitude or longitude that a 
+vertex can reach out of the center of the Polygon (Default: 10)
+
+```{r}
+wkt_polygon(max_radial_length = 5)
+```
+
+Within a bounding box
+
+```{r}
+wkt_polygon(bbox = c(-130, 50, -120, 60))
+```
+
+
+
+## GeoJSON
+
+### random points
+
+A single point
+
+```{r}
+geo_point()
+```
+
+Many points
+
+```{r output.lines=1:10}
+geo_point(count = 10)
+```
+
+Within a bounding box
+
+```{r}
+geo_point(bbox = c(50, 50, 60, 60))
+```
+
+
+### random polygons
+
+```{r}
+geo_polygon()
+```
+
+Adjust number of vertices (Default: 10)
+
+```{r}
+geo_polygon(num_vertices = 4)
+```
+
+Adjust maximum number of decimal degrees latitude or longitude that a 
+vertex can reach out of the center of the Polygon (Default: 10)
+
+```{r}
+geo_polygon(max_radial_length = 5)
+```
+
+Within a bounding box
+
+```{r}
+geo_polygon(bbox = c(-130, 50, -120, 60))
+```
