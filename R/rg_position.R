@@ -11,6 +11,9 @@
 #' rg_position(100)
 #' rg_position(bbox = c(50, 50, 60, 60))
 rg_position <- function(count = 1, bbox = NULL) {
+  assert(count, c('numeric', 'integer'))
+  assert(bbox, c('numeric', 'integer'))
+
   res <- list()
   for (i in seq_len(count)) {
     res[[i]] <- position(bbox)
