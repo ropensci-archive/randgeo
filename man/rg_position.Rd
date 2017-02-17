@@ -20,4 +20,3 @@ Random position
 rg_position()
 rg_position(bbox = c(50, 50, 60, 60))
 }
-

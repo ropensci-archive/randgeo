@@ -29,4 +29,3 @@ wkt_point(fmt = 5)
 wkt_point(fmt = 6)
 wkt_point(fmt = 7)
 }
-

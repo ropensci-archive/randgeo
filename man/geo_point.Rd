@@ -23,4 +23,3 @@ geo_point()
 geo_point(10)
 geo_point(bbox = c(50, 50, 60, 60))
 }
-

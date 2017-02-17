@@ -35,4 +35,3 @@ wkt_polygon(num_vertices = 4)
 wkt_polygon(num_vertices = 100)
 wkt_polygon(10)
 }
-
