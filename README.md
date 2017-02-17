@@ -21,6 +21,15 @@ Package API:
 
 ## Install
 
+Stabler CRAN version
+
+
+```r
+install.packages("randgeo")
+```
+
+Development version
+
 
 ```r
 devtools::install_github("ropensci/randgeo")
@@ -36,7 +45,8 @@ library("randgeo")
 
 ```r
 rg_position()
-#> [1]   9.644503 -27.715903
+#> [[1]]
+#> [1] -15.44412 -38.92475
 ```
 
 ## random GeoJSON
@@ -59,7 +69,7 @@ geo_point()
 #> [1] "Point"
 #> 
 #> $features[[1]]$geometry$coordinates
-#> [1] -4.265973 87.347850
+#> [1]  16.47672 -74.05690
 #> 
 #> 
 #> $features[[1]]$properties
@@ -86,37 +96,37 @@ geo_polygon()
 #> $features[[1]]$geometry$coordinates
 #> $features[[1]]$geometry$coordinates[[1]]
 #> $features[[1]]$geometry$coordinates[[1]][[1]]
-#> [1] 178.78343  80.10305
+#> [1] 155.48675  83.14403
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[2]]
-#> [1] 180.32300  79.67496
+#> [1] 161.44543  79.63525
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[3]]
-#> [1] 179.98934  78.75234
+#> [1] 157.6343  79.8766
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[4]]
-#> [1] 182.35137  73.44748
+#> [1] 154.01417  77.26018
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[5]]
-#> [1] 176.11500  71.89217
+#> [1] 148.58069  79.78645
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[6]]
-#> [1] 175.38772  76.80382
+#> [1] 149.22902  82.59558
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[7]]
-#> [1] 176.46482  79.28137
+#> [1] 148.89058  85.07908
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[8]]
-#> [1] 172.43525  85.17413
+#> [1] 145.9176  87.6202
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[9]]
-#> [1] 178.02214  81.81016
+#> [1] 151.3219  88.6061
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[10]]
-#> [1] 178.32139  89.14823
+#> [1] 153.26898  90.73207
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[11]]
-#> [1] 178.78343  80.10305
+#> [1] 155.48675  83.14403
 #> 
 #> 
 #> 
@@ -142,7 +152,7 @@ point
 
 ```r
 wkt_point()
-#> [1] "POINT (100.6199625 30.2035957)"
+#> [1] "POINT (-163.2614716 -83.3048749)"
 ```
 
 polygon
@@ -150,5 +160,14 @@ polygon
 
 ```r
 wkt_polygon()
-#> [1] "POLYGON ((132.7186455 25.0592482, 133.9164730 18.2023618, 131.7386173 16.9931903, 126.3648560 20.1407658, 127.0359810 20.9430804, 119.8914226 19.3559769, 124.5652773 21.1502025, 126.8898829 26.8302855, 127.8522344 23.0016881, 128.2104103 30.7394980, 132.7186455 25.0592482))"
+#> [1] "POLYGON ((89.8048585 61.8254312, 88.9329390 60.7697099, 92.5001356 58.0362473, 93.8532175 53.5291327, 88.5455690 59.9501290, 90.1393320 56.1050423, 89.0807555 56.4119115, 82.1906641 60.6291550, 83.4751727 68.4828310, 88.2114607 66.3359247, 89.8048585 61.8254312))"
 ```
+
+## Meta
+
+* Please [report any issues or bugs](https://github.com/ropensci/randgeo/issues).
+* License: MIT
+* Get citation information for `randgeo` in R doing `citation(package = 'randgeo')`
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+[![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
