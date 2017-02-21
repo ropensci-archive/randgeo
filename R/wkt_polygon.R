@@ -4,11 +4,12 @@
 #' @param count (integer/numeric) number of Polygons. Default: 1
 #' @param num_vertices (integer/numeric) is default 10 and is how many
 #' coordinates each Polygon will contain. Default: 10
-#' @param max_radial_length (integer/numeric) maximum number of decimal degrees
-#' latitude or longitude that a vertex can reach out of the center of the
-#' Polygon. Default: 10
-#' @param bbox (integer/numeric) bounding box, numeric vector of the form
-#' \code{west, south, east, north}. optional
+#' @param max_radial_length (integer/numeric) maximum distance that a vertex
+#' can reach out of the center of the Polygon. Units are in degrees latitude
+#' (Approximately 69 miles or 111 km). Default: 10
+#' @param bbox (integer/numeric) lat/long bounding box for the centers of the
+#' polygons, numeric vector of the form
+#' \code{west (long), south (lat), east (long), north (lat)}. optional
 #' @param fmt (integer/numeric) number of digits. Default: 7
 #' @return WKT; a character vector with one or more POLYGON strings
 #' @examples

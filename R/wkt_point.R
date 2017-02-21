@@ -2,8 +2,9 @@
 #'
 #' @export
 #' @param count (integer/numeric) number of Polygons. Default: 1
-#' @param bbox (integer/numeric) bounding box, numeric vector of the form
-#' \code{west, south, east, north}. optional
+#' @param bbox (integer/numeric) lat/long bounding box for the centers of the
+#' polygons, numeric vector of the form
+#' \code{west (long), south (lat), east (long), north (lat)}. optional
 #' @param fmt (integer/numeric) number of digits. Default: 7
 #' @return WKT; a character vector with one ore more POINT strings
 #' @examples

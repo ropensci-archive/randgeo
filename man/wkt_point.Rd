@@ -9,8 +9,9 @@ wkt_point(count = 1, bbox = NULL, fmt = 7)
 \arguments{
 \item{count}{(integer/numeric) number of Polygons. Default: 1}
 
-\item{bbox}{(integer/numeric) bounding box, numeric vector of the form
-\code{west, south, east, north}. optional}
+\item{bbox}{(integer/numeric) lat/long bounding box for the centers of the
+polygons, numeric vector of the form
+\code{west (long), south (lat), east (long), north (lat)}. optional}
 
 \item{fmt}{(integer/numeric) number of digits. Default: 7}
 }
