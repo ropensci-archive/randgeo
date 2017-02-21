@@ -27,11 +27,12 @@ geo_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
     hub <- position(bbox)
     vertices <- list()
     circle_distances <- stats::runif(num_vertices) * max_radial_length
-    circle_bearings <- stats::runif(num_vertices) * 2 * pi
-    vertices <- Map(destination,
-                    origin=hub,
-                    distance=circle_distances,
-                    bearing=circle_bearings)
+    circle_bearings <- sort(stats::runif(num_vertices) * 2 * pi)
+    vertices <- mapply(destination,
+                       distance=circle_distances,
+                       bearing=circle_bearings,
+                       MoreArgs=list(origin=hub),
+                       SIMPLIFY=FALSE)
 
     # close the ring
     vertices <- c(vertices, vertices[1])
