@@ -6,23 +6,37 @@
 \alias{randgeo}
 \title{Random WKT or GeoJSON}
 \description{
-Adapted from \url{https://github.com/tmcw/geojson-random} for a pure
-R implementation
+\strong{randgeo} generates random points and shapes in GeoJSON and WKT formats for use
+in examples, teaching, or statistical applications.
+}
+\details{
+Points and shapes are generated in the long/lat coordinate system and with
+appropriate spherical geometry; random points are distributed evenly across
+the globe, and random shapes are sized according to a maximum great-circle
+distance from the center of the shape.
+
+\strong{randgeo} was adapted from \url{https://github.com/tmcw/geojson-random} to have a pure R
+implementation without any dependencies as well as appropriate geometry. Data generated
+by \strong{randgeo} may be processed or displayed of with packages such as
+\href{https://cran.r-project.org/package=sf}{sf},
+\href{https://cran.r-project.org/package=wicket}{wicket},
+\href{https://cran.r-project.org/package=geojson}{geojson}, or
+\href{https://cran.r-project.org/package=lawn}{lawn}.
 }
 \section{Package API}{
 
 \itemize{
- \item rg_position - random position
- \item geo_point - random GeoJSON point
- \item geo_polygon - random GeoJSON polygon
- \item wkt_point - random WKT point
- \item wkt_polygon - random WKT polygon
+\item \code{\link[=rg_position ]{rg_position ()}}- random position
+\item \code{\link[=geo_point]{geo_point()}} - random GeoJSON point
+\item \code{\link[=geo_polygon]{geo_polygon()}} - random GeoJSON polygon
+\item \code{\link[=wkt_point]{wkt_point()}} - random WKT point
+\item \code{\link[=wkt_polygon]{wkt_polygon()}} - random WKT polygon
 }
 }
 
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain (\email{myrmecocystus@gmail.com})
 
-Noam Ross
+Noam Ross (\email{noam.ross@gmail.com})
 }
 \keyword{package}

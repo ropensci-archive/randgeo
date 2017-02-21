@@ -1,21 +1,34 @@
 #' Random WKT or GeoJSON
 #'
-#' Adapted from \url{https://github.com/tmcw/geojson-random} for a pure
-#' R implementation
+#' **randgeo** generates random points and shapes in GeoJSON and WKT formats for use
+#' in examples, teaching, or statistical applications.
+#'
+#' Points and shapes are generated in the long/lat coordinate system and with
+#' appropriate spherical geometry; random points are distributed evenly across
+#' the globe, and random shapes are sized according to a maximum great-circle
+#' distance from the center of the shape.
+#'
+#' **randgeo** was adapted from <https://github.com/tmcw/geojson-random> to have a pure R
+#' implementation without any dependencies as well as appropriate geometry. Data generated
+#' by **randgeo** may be processed or displayed of with packages such as
+#' [**sf**](https://cran.r-project.org/package=sf),
+#' [**wicket**](https://cran.r-project.org/package=wicket),
+#' [**geojson**](https://cran.r-project.org/package=geojson), or
+#' [**lawn**](https://cran.r-project.org/package=lawn).
 #'
 #' @section Package API:
 #' \itemize{
-#'  \item rg_position - random position
-#'  \item geo_point - random GeoJSON point
-#'  \item geo_polygon - random GeoJSON polygon
-#'  \item wkt_point - random WKT point
-#'  \item wkt_polygon - random WKT polygon
+#'  \item [rg_position ()]- random position
+#'  \item [geo_point()] - random GeoJSON point
+#'  \item [geo_polygon()] - random GeoJSON polygon
+#'  \item [wkt_point()] - random WKT point
+#'  \item [wkt_polygon()] - random WKT polygon
 #' }
 #'
 #' @name randgeo-package
 #' @aliases randgeo
 #' @docType package
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @author Noam Ross
+#' @author Scott Chamberlain (\email{myrmecocystus@@gmail.com})
+#' @author Noam Ross (\email{noam.ross@gmail.com})
 #' @keywords package
 NULL
