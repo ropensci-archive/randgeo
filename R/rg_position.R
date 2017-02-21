@@ -2,8 +2,9 @@
 #'
 #' @export
 #' @param count (integer/numeric) number of Polygons. Default: 1
-#' @param bbox (integer/numeric) bounding box, numeric vector of the form
-#' \code{west, south, east, north}. optional
+#' @param bbox (integer/numeric) lat/long bounding box for the centers of the
+#' polygons, numeric vector of the form
+#' \code{west (long), south (lat), east (long), north (lat)}. optional
 #' @return A list, each element is a numeric vector length two of long, lat
 #' @examples
 #' rg_position()

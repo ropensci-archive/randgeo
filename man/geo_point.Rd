@@ -9,8 +9,9 @@ geo_point(count = 1, bbox = NULL)
 \arguments{
 \item{count}{(integer/numeric) number of Polygons. Default: 1}
 
-\item{bbox}{(integer/numeric) bounding box, numeric vector of the form
-\code{west, south, east, north}. optional}
+\item{bbox}{(integer/numeric) lat/long bounding box for the centers of the
+polygons, numeric vector of the form
+\code{west (long), south (lat), east (long), north (lat)}. optional}
 }
 \value{
 GeoJSON; a list with one ore more Points in a FeatureCollection

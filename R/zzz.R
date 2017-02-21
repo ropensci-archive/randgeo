@@ -1,9 +1,12 @@
 `%||%` <- function(x, y) if (is.null(x) || length(x) == 0) y else x
 
+# from http://www.geomidpoint.com/random/calculation.html
 coord_in_bbbox <- function(bbox) {
   c(
-    (stats::runif(1) * (bbox[3] - bbox[1])) + bbox[1],
-    (stats::runif(1) * (bbox[4] - bbox[2])) + bbox[2]
+    stats::runif(1) * (bbox[3] - bbox[1]) + bbox[1],
+    (180/pi)* asin(
+      stats::runif(1) * (sin(bbox[4]*(pi/180)) - sin(bbox[2]*(pi/180))) +
+        sin(bbox[2]*(pi/180)))
   )
 }
 
@@ -15,9 +18,8 @@ position <- function(bbox = NULL) {
   }
 }
 
-rnd <- function() stats::runif(1) - 0.5
-lon <- function() rnd() * 360
-lat <- function() rnd() * 180
+lon <- function() (stats::runif(1) - 0.5) * 360
+lat <- function() 180 * acos(2*stats::runif(1) - 1)/pi - 90
 
 point <- function(x = NULL) {
   list(

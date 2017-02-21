@@ -14,6 +14,13 @@ test_that("rg_position works", {
   # lat is between -90 and 90
   expect_lte(abs(rg_position()[[1]][2]), 90)
 
+  #positions are within bounding box
+  in_box = rg_position(100, bbox = c(-10, 10, 30, 40))
+  expect_true(all(sapply(in_box, function(x) x[1]) > -10))
+  expect_true(all(sapply(in_box, function(x) x[1]) < 30))
+  expect_true(all(sapply(in_box, function(x) x[2]) > 10))
+  expect_true(all(sapply(in_box, function(x) x[2]) < 40))
+
   # count works
   expect_equal(length(rg_position(count = 10)), 10)
 })
