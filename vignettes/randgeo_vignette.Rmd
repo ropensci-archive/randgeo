@@ -1,6 +1,6 @@
 ---
 title: "Introduction to the randgeo package"
-author: "Scott Chamberlain"
+author: "Scott Chamberlain and Noam Ross"
 date: "`r Sys.Date()`"
 output: 
   html_document:
@@ -51,9 +51,11 @@ knitr::opts_chunk$set(
 random WKT or GeoJSON points or polygons.
 
 The benefit of no dependencies is that it can easily be used in other packages 
-without any pain.
+without any pain. e.g., you may want to show examples in your package but you
+don't want a heavy dependency just for examples.
 
 This package is adapted from Javascript's <https://github.com/tmcw/geojson-random>
+but with modifications.
 
 ## Install
 
