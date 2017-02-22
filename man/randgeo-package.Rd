@@ -26,7 +26,7 @@ by \strong{randgeo} may be processed or displayed of with packages such as
 \section{Package API}{
 
 \itemize{
-\item \code{\link[=rg_position ]{rg_position ()}}- random position
+\item \code{\link[=rg_position]{rg_position()}}- random position
 \item \code{\link[=geo_point]{geo_point()}} - random GeoJSON point
 \item \code{\link[=geo_polygon]{geo_polygon()}} - random GeoJSON polygon
 \item \code{\link[=wkt_point]{wkt_point()}} - random WKT point

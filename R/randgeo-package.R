@@ -18,7 +18,7 @@
 #'
 #' @section Package API:
 #' \itemize{
-#'  \item [rg_position ()]- random position
+#'  \item [rg_position()]- random position
 #'  \item [geo_point()] - random GeoJSON point
 #'  \item [geo_polygon()] - random GeoJSON polygon
 #'  \item [wkt_point()] - random WKT point
