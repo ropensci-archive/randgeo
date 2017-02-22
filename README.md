@@ -1,5 +1,5 @@
-randgeo
-=======
+randgeo: random WKT and GeoJSON
+===============================
 
 
 
@@ -8,10 +8,21 @@ randgeo
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/randgeo?color=C9A115)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/randgeo)](https://cran.r-project.org/package=randgeo)
 
-`rangeo` - random WKT or GeoJSON
+**randgeo** generates random points and shapes in GeoJSON and WKT formats for use
+in examples, teaching, or statistical applications.
 
-adapted from <https://github.com/tmcw/geojson-random> to have a pure R
-implementation without any dependencies.
+Points and shapes are generated in the long/lat coordinate system and with
+appropriate spherical geometry; random points are distributed evenly across
+the globe, and random shapes are sized according to a maximum great-circle
+distance from the center of the shape. 
+
+**randgeo** was adapted from <https://github.com/tmcw/geojson-random> to have a pure R
+implementation without any dependencies as well as appropriate geometry. Data generated
+by **randgeo** may be processed or displayed of with packages such as
+[**sf**](https://cran.r-project.org/package=sf),
+[**wicket**](https://cran.r-project.org/package=wicket),
+[**geojsonio**](https://cran.r-project.org/package=geojsonio), or
+[**lawn**](https://cran.r-project.org/package=lawn).
 
 Package API:
 
@@ -42,18 +53,19 @@ devtools::install_github("ropensci/randgeo")
 library("randgeo")
 ```
 
-## random position
+## Generate a random position
 
 
 ```r
 rg_position()
 #> [[1]]
-#> [1] -60.99727 -17.67208
+#> [1] -112.72244   34.83723
 ```
 
-## random GeoJSON
+## Genrate random GeoJSON
 
-point
+Random point - evenly distributed across the sphere.  The `bbox` option allows
+you to limit points to within long/lat bounds.
 
 
 ```r
@@ -71,14 +83,14 @@ geo_point()
 #> [1] "Point"
 #> 
 #> $features[[1]]$geometry$coordinates
-#> [1] -158.42574  -42.74468
+#> [1] 150.64720  60.07958
 #> 
 #> 
 #> $features[[1]]$properties
 #> list()
 ```
 
-polygon
+Random polygon - centered on a random point, with default maximum size
 
 
 ```r
@@ -98,37 +110,37 @@ geo_polygon()
 #> $features[[1]]$geometry$coordinates
 #> $features[[1]]$geometry$coordinates[[1]]
 #> $features[[1]]$geometry$coordinates[[1]][[1]]
-#> [1] 160.35517  72.95089
+#> [1] -114.75971   66.18179
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[2]]
-#> [1] 164.60923  74.56425
+#> [1] -107.42522   70.25397
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[3]]
-#> [1] 160.00658  72.16615
+#> [1] -100.83431   71.09052
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[4]]
-#> [1] 167.4745  73.8971
+#> [1] -103.06471   67.91556
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[5]]
-#> [1] -179.07399   73.78682
+#> [1] -99.24931  68.39487
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[6]]
-#> [1] 179.38836  69.61161
+#> [1] -104.20879   65.63556
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[7]]
-#> [1] 165.29475  71.08091
+#> [1] -116.94647   64.15155
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[8]]
-#> [1] 144.26124  64.58493
+#> [1] -117.96553   64.80713
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[9]]
-#> [1] 158.95471  71.87775
+#> [1] -124.72185   65.40164
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[10]]
-#> [1] 155.71951  74.30541
+#> [1] -116.10477   65.52092
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[11]]
-#> [1] 160.35517  72.95089
+#> [1] -114.75971   66.18179
 #> 
 #> 
 #> 
@@ -137,7 +149,7 @@ geo_polygon()
 #> list()
 ```
 
-visualize
+Visualize your shapes with **lawn**.
 
 
 ```r
@@ -147,22 +159,22 @@ lawn::view(jsonlite::toJSON(geo_polygon(count = 4), auto_unbox = TRUE))
 ![map](inst/img/plot.png)
 
 
-## random WKT
+## Generate random WKT
 
-point
+Random point
 
 
 ```r
 wkt_point()
-#> [1] "POINT (-20.0155081 -14.7482874)"
+#> [1] "POINT (-12.2853061 -54.2639530)"
 ```
 
-polygon
+Random polygon
 
 
 ```r
 wkt_polygon()
-#> [1] "POLYGON ((-112.4009176 17.1798778, -106.3876922 17.6107603, -107.3491035 7.1251803, -111.1108246 11.6772536, -107.5070658 5.2593379, -112.5562679 12.9757496, -118.4648956 13.7521589, -116.4839306 18.1692495, -116.2859821 20.2412508, -112.8601892 14.2883748, -112.4009176 17.1798778))"
+#> [1] "POLYGON ((-117.2008253 -21.0078697, -113.8077098 -28.8466204, -116.5085597 -29.4638262, -118.1729898 -29.6533777, -119.9599728 -29.4791262, -123.4375120 -35.4295879, -121.2274544 -28.6658319, -121.6890946 -28.0213506, -128.8640555 -28.0789419, -120.0106419 -27.7648403, -117.2008253 -21.0078697))"
 ```
 
 ## Meta
