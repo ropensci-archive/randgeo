@@ -8,3 +8,5 @@ Makefile
 ^cran-comments\.md$
 ^README\.Rmd$
 inst/img/
+docs
+
