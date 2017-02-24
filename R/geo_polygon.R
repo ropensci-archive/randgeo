@@ -21,6 +21,7 @@ geo_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
   assert(num_vertices, c('numeric', 'integer'))
   assert(max_radial_length, c('numeric', 'integer'))
   assert(bbox, c('numeric', 'integer'))
+  if (!is.null(bbox)) stopifnot(length(bbox) == 4)
 
   features <- list()
   for (i in seq_len(count)) {

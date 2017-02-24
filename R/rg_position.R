@@ -20,6 +20,7 @@
 rg_position <- function(count = 1, bbox = NULL) {
   assert(count, c('numeric', 'integer'))
   assert(bbox, c('numeric', 'integer'))
+  if (!is.null(bbox)) stopifnot(length(bbox) == 4)
 
   res <- list()
   for (i in seq_len(count)) {

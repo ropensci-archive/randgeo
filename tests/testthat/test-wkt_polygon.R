@@ -1,8 +1,6 @@
 context("wkt_polygon")
 
 test_that("wkt_polygon works", {
-  skip_on_cran()
-
   aa <- wkt_polygon()
 
   expect_is(aa, "character")
@@ -21,4 +19,23 @@ test_that("wkt_polygon works", {
 
   # lat is between -90 and 90
   expect_lte(abs(lat), 90)
+})
+
+test_that("wkt_polygon fails well", {
+  skip_on_cran()
+
+  expect_error(wkt_polygon(count = "foo"),
+                         "count must be of class numeric, integer")
+
+  expect_error(wkt_polygon(num_vertices = "Adsfdf"),
+                           "num_vertices must be of class numeric, integer")
+
+  expect_error(wkt_polygon(max_radial_length = mtcars),
+                           "max_radial_length must be of class numeric, integer")
+
+  expect_error(wkt_polygon(stuff = mtcars), "unused argument")
+
+  expect_error(wkt_polygon(bbox = 4), "length\\(bbox\\) == 4 is not TRUE")
+
+  expect_error(wkt_polygon(fmt = 145), "invalid 'nsmall' argument")
 })

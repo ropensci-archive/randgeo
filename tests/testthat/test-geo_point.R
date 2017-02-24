@@ -1,8 +1,6 @@
 context("geo_point")
 
 test_that("geo_point works", {
-  skip_on_cran()
-
   aa <- geo_point()
 
   expect_is(aa, "list")
@@ -23,4 +21,19 @@ test_that("geo_point works", {
 
   # lat is between -90 and 90
   expect_lte(abs(coord[2]), 90)
+})
+
+test_that("geo_point fails well", {
+  skip_on_cran()
+
+  expect_error(geo_point(count = "foo"),
+                         "count must be of class numeric, integer")
+  expect_error(geo_point(count = list(foo = 5)),
+                         "count must be of class numeric, integer")
+  expect_error(geo_point(count = mtcars),
+                         "count must be of class numeric, integer")
+
+  expect_error(geo_point(stuff = mtcars), "unused argument")
+
+  expect_error(geo_point(bbox = 4), "length\\(bbox\\) == 4 is not TRUE")
 })

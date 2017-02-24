@@ -13,6 +13,7 @@
 geo_point <- function(count = 1, bbox = NULL) {
   assert(count, c('numeric', 'integer'))
   assert(bbox, c('numeric', 'integer'))
+  if (!is.null(bbox)) stopifnot(length(bbox) == 4)
 
   features <- list()
   for (i in seq_len(count)) {

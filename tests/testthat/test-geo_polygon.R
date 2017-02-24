@@ -1,8 +1,6 @@
 context("geo_polygon")
 
 test_that("geo_polygon works", {
-  skip_on_cran()
-
   aa <- geo_polygon()
 
   expect_is(aa, "list")
@@ -26,4 +24,19 @@ test_that("geo_polygon works", {
 
   # lat is between -90 and 90
   expect_lte(abs(coord[2]), 90)
+})
+
+test_that("geo_polygon fails well", {
+  skip_on_cran()
+
+  expect_error(geo_polygon(count = "foo"),
+                         "count must be of class numeric, integer")
+  expect_error(geo_polygon(count = list(foo = 5)),
+                         "count must be of class numeric, integer")
+  expect_error(geo_polygon(count = mtcars),
+                         "count must be of class numeric, integer")
+
+  expect_error(geo_polygon(stuff = mtcars), "unused argument")
+
+  expect_error(geo_polygon(bbox = 4), "length\\(bbox\\) == 4 is not TRUE")
 })
