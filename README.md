@@ -21,16 +21,22 @@ implementation without any dependencies as well as appropriate geometry. Data ge
 by **randgeo** may be processed or displayed of with packages such as
 [**sf**](https://cran.r-project.org/package=sf),
 [**wicket**](https://cran.r-project.org/package=wicket),
+[**geojson**](https://cran.r-project.org/package=geojson),
+[**wellknown**](https://cran.r-project.org/package=wellknown),
 [**geojsonio**](https://cran.r-project.org/package=geojsonio), or
 [**lawn**](https://cran.r-project.org/package=lawn).
 
 Package API:
 
-* `rg_position` - random position
+* `rg_position` - random position (lon, lat)
 * `geo_point` - random GeoJSON point
 * `geo_polygon` - random GeoJSON polygon
 * `wkt_point` - random WKT point
 * `wkt_polygon` - random WKT polygon
+
+## Docs
+
+<https://ropensci.github.io/randgeo/>
 
 ## Install
 
@@ -59,7 +65,7 @@ library("randgeo")
 ```r
 rg_position()
 #> [[1]]
-#> [1] -112.72244   34.83723
+#> [1] 123.9114  28.7060
 ```
 
 ## Genrate random GeoJSON
@@ -83,7 +89,7 @@ geo_point()
 #> [1] "Point"
 #> 
 #> $features[[1]]$geometry$coordinates
-#> [1] 150.64720  60.07958
+#> [1] 91.63560 11.12243
 #> 
 #> 
 #> $features[[1]]$properties
@@ -110,37 +116,37 @@ geo_polygon()
 #> $features[[1]]$geometry$coordinates
 #> $features[[1]]$geometry$coordinates[[1]]
 #> $features[[1]]$geometry$coordinates[[1]][[1]]
-#> [1] -114.75971   66.18179
+#> [1] 167.5056  11.7631
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[2]]
-#> [1] -107.42522   70.25397
+#> [1] 169.932405  -1.716375
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[3]]
-#> [1] -100.83431   71.09052
+#> [1] 163.440217   2.163558
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[4]]
-#> [1] -103.06471   67.91556
+#> [1] 160.50593477   0.07725084
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[5]]
-#> [1] -99.24931  68.39487
+#> [1] 156.2431251  -0.7218273
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[6]]
-#> [1] -104.20879   65.63556
+#> [1] 154.4680334   0.0508432
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[7]]
-#> [1] -116.94647   64.15155
+#> [1] 152.965884   4.109539
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[8]]
-#> [1] -117.96553   64.80713
+#> [1] 161.803351   5.745208
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[9]]
-#> [1] -124.72185   65.40164
+#> [1] 161.771682   6.510662
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[10]]
-#> [1] -116.10477   65.52092
+#> [1] 162.30199  11.74731
 #> 
 #> $features[[1]]$geometry$coordinates[[1]][[11]]
-#> [1] -114.75971   66.18179
+#> [1] 167.5056  11.7631
 #> 
 #> 
 #> 
@@ -166,7 +172,7 @@ Random point
 
 ```r
 wkt_point()
-#> [1] "POINT (-12.2853061 -54.2639530)"
+#> [1] "POINT (-156.8267949 1.0421837)"
 ```
 
 Random polygon
@@ -174,7 +180,7 @@ Random polygon
 
 ```r
 wkt_polygon()
-#> [1] "POLYGON ((-117.2008253 -21.0078697, -113.8077098 -28.8466204, -116.5085597 -29.4638262, -118.1729898 -29.6533777, -119.9599728 -29.4791262, -123.4375120 -35.4295879, -121.2274544 -28.6658319, -121.6890946 -28.0213506, -128.8640555 -28.0789419, -120.0106419 -27.7648403, -117.2008253 -21.0078697))"
+#> [1] "POLYGON ((-39.6435291 -35.6439781, -50.8816485 -37.1900222, -56.3625756 -41.0998361, -52.4500131 -36.5888093, -56.2291407 -36.3080232, -57.3634195 -35.4103150, -55.7971759 -34.6454685, -60.6118766 -33.4285820, -58.9087262 -31.8995220, -53.2012409 -32.4368328, -39.6435291 -35.6439781))"
 ```
 
 ## Meta

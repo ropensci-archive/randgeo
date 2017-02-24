@@ -28,16 +28,22 @@ implementation without any dependencies as well as appropriate geometry. Data ge
 by **randgeo** may be processed or displayed of with packages such as
 [**sf**](https://cran.r-project.org/package=sf),
 [**wicket**](https://cran.r-project.org/package=wicket),
+[**geojson**](https://cran.r-project.org/package=geojson),
+[**wellknown**](https://cran.r-project.org/package=wellknown),
 [**geojsonio**](https://cran.r-project.org/package=geojsonio), or
 [**lawn**](https://cran.r-project.org/package=lawn).
 
 Package API:
 
-* `rg_position` - random position
+* `rg_position` - random position (lon, lat)
 * `geo_point` - random GeoJSON point
 * `geo_polygon` - random GeoJSON polygon
 * `wkt_point` - random WKT point
 * `wkt_polygon` - random WKT polygon
+
+## Docs
+
+<https://ropensci.github.io/randgeo/>
 
 ## Install
 
