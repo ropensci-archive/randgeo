@@ -2,10 +2,10 @@
 #'
 #' @export
 #' @param count (integer/numeric) number of Polygons. Default: 1
-#' @param num_vertices (integer/numeric) is default 10 and is how many
-#' coordinates each Polygon will contain. Default: 10
+#' @param num_vertices (integer/numeric) how many coordinates each
+#' polygon will contain. Default: 10
 #' @param max_radial_length (integer/numeric) maximum distance that a vertex
-#' can reach out of the center of the Polygon. Units are in degrees latitude
+#' can reach out of the center of the polygon. Units are in degrees latitude
 #' (Approximately 69 miles or 111 km). Default: 10
 #' @param bbox (integer/numeric) lat/long bounding box for the centers of the
 #' polygons, numeric vector of the form

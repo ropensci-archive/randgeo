@@ -7,10 +7,10 @@
 geo_point(count = 1, bbox = NULL)
 }
 \arguments{
-\item{count}{(integer/numeric) number of Polygons. Default: 1}
+\item{count}{(integer/numeric) number of points. Default: 1}
 
-\item{bbox}{(integer/numeric) lat/long bounding box for the centers of the
-polygons, numeric vector of the form
+\item{bbox}{(integer/numeric) lat/long bounding box from which to generate
+positions; numeric vector of the form
 \code{west (long), south (lat), east (long), north (lat)}. optional}
 }
 \value{

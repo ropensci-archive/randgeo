@@ -1,9 +1,9 @@
 #' Random GeoJSON point
 #'
 #' @export
-#' @param count (integer/numeric) number of Polygons. Default: 1
-#' @param bbox (integer/numeric) lat/long bounding box for the centers of the
-#' polygons, numeric vector of the form
+#' @param count (integer/numeric) number of points. Default: 1
+#' @param bbox (integer/numeric) lat/long bounding box from which to generate
+#' positions; numeric vector of the form
 #' \code{west (long), south (lat), east (long), north (lat)}. optional
 #' @return GeoJSON; a list with one ore more Points in a FeatureCollection
 #' @examples
