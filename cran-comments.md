@@ -17,12 +17,13 @@
 
 ## Reverse dependencies
 
-This is a new package, so no reverse dependencies.
+There are no reverse dependencies.
 
 ---
 
-This is a new release. I have read and agree to the the CRAN 
-policies at https://cran.r-project.org/web/packages/policies.html
+This version makes a number of improvements, including making random points
+evenly distributed on the (earth) sphere, and making sizes of random shapes 
+according to great circle distance from the center of the shape.
 
 Thanks!
 Scott Chamberlain

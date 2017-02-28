@@ -3,7 +3,7 @@ Title: Generate Random 'WKT' or 'GeoJSON'
 Description: Generate random positions (latitude/longitude), 
     Well-known text (WKT) points or polygons, or 'GeoJSON' points or 
     polygons. 
-Version: 0.1.2.9250
+Version: 0.2.0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"),
     person("Noam", "Ross", role = "aut")
