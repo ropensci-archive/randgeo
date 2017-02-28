@@ -48,7 +48,7 @@ geo_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
 destination <- function(origin, distance, bearing) {
   origin <- origin * pi/180
   #angular distance, constant is earth radius in degrees lat distance
-  adist = distance*pi/180
+  adist <- distance*pi/180
   dest <- numeric(2)
   dest[2] <- asin(sin(origin[2]) * cos(adist) +
                     cos(origin[2]) * sin(adist) * cos(bearing))

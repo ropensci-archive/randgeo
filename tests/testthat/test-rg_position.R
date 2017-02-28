@@ -15,7 +15,7 @@ test_that("rg_position works", {
   expect_true(all(lats <= 90))
 
   # positions are within bounding box
-  in_box = rg_position(100, bbox = c(-10, 10, 30, 40))
+  in_box <- rg_position(100, bbox = c(-10, 10, 30, 40))
   expect_true(all(sapply(in_box, function(x) x[1]) > -10))
   expect_true(all(sapply(in_box, function(x) x[1]) < 30))
   expect_true(all(sapply(in_box, function(x) x[2]) > 10))

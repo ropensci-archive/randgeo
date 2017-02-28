@@ -30,8 +30,9 @@ test_that("wkt_polygon fails well", {
   expect_error(wkt_polygon(num_vertices = "Adsfdf"),
                            "num_vertices must be of class numeric, integer")
 
-  expect_error(wkt_polygon(max_radial_length = mtcars),
-                           "max_radial_length must be of class numeric, integer")
+  expect_error(
+    wkt_polygon(max_radial_length = mtcars),
+    "max_radial_length must be of class numeric, integer")
 
   expect_error(wkt_polygon(stuff = mtcars), "unused argument")
 
