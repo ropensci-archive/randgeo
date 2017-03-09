@@ -100,7 +100,7 @@
 <a href="#generate-a-random-position" class="anchor"> </a>Generate a random position</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/rg_position.html">rg_position</a></span>()
 <span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; [1] 147.13639  18.18932</span></code></pre></div>
+<span class="co">#&gt; [1] -168.484157    5.088225</span></code></pre></div>
 </div>
 <div id="genrate-random-geojson" class="section level2">
 <h2 class="hasAnchor">
@@ -120,11 +120,16 @@
 <span class="co">#&gt; [1] "Point"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates</span>
-<span class="co">#&gt; [1] 103.81545  21.17203</span>
+<span class="co">#&gt; [1] -116.69322   76.62914</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$properties</span>
-<span class="co">#&gt; list()</span></code></pre></div>
+<span class="co">#&gt; list()</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; attr(,"class")</span>
+<span class="co">#&gt; [1] "geo_list"</span></code></pre></div>
 <p>Random polygon - centered on a random point, with default maximum size</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/geo_polygon.html">geo_polygon</a></span>()
 <span class="co">#&gt; $type</span>
@@ -142,43 +147,48 @@
 <span class="co">#&gt; $features[[1]]$geometry$coordinates</span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]]</span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[1]]</span>
-<span class="co">#&gt; [1] -68.79857  23.77141</span>
+<span class="co">#&gt; [1]  -0.3156445 -29.9783344</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[2]]</span>
-<span class="co">#&gt; [1] -67.94404  21.28219</span>
+<span class="co">#&gt; [1]   0.4012508 -32.2270999</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[3]]</span>
-<span class="co">#&gt; [1] -61.85361  24.78152</span>
+<span class="co">#&gt; [1]   7.041236 -34.537079</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[4]]</span>
-<span class="co">#&gt; [1] -65.60535  17.08066</span>
+<span class="co">#&gt; [1]   4.16735 -34.40974</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[5]]</span>
-<span class="co">#&gt; [1] -64.03186  14.63027</span>
+<span class="co">#&gt; [1]   1.312761 -33.272637</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[6]]</span>
-<span class="co">#&gt; [1] -66.66572  15.58776</span>
+<span class="co">#&gt; [1]  -1.876877 -37.761760</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[7]]</span>
-<span class="co">#&gt; [1] -67.63651  14.40200</span>
+<span class="co">#&gt; [1]  -7.426155 -39.739024</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[8]]</span>
-<span class="co">#&gt; [1] -74.66322  19.16390</span>
+<span class="co">#&gt; [1]  -4.027606 -33.198235</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[9]]</span>
-<span class="co">#&gt; [1] -75.90179  20.32887</span>
+<span class="co">#&gt; [1]  -2.439099 -29.558790</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[10]]</span>
-<span class="co">#&gt; [1] -69.80450  23.22818</span>
+<span class="co">#&gt; [1]  -2.889338 -25.971742</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[11]]</span>
-<span class="co">#&gt; [1] -68.79857  23.77141</span>
+<span class="co">#&gt; [1]  -0.3156445 -29.9783344</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $features[[1]]$properties</span>
-<span class="co">#&gt; list()</span></code></pre></div>
+<span class="co">#&gt; list()</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; attr(,"class")</span>
+<span class="co">#&gt; [1] "geo_list"</span></code></pre></div>
 <p>Visualize your shapes with <strong>lawn</strong>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lawn::<span class="kw">view</span>(jsonlite::<span class="kw">toJSON</span>(<span class="kw"><a href="reference/geo_polygon.html">geo_polygon</a></span>(<span class="dt">count =</span> <span class="dv">4</span>), <span class="dt">auto_unbox =</span> <span class="ot">TRUE</span>))</code></pre></div>
 <div class="figure">
@@ -190,10 +200,10 @@
 <a href="#generate-random-wkt" class="anchor"> </a>Generate random WKT</h2>
 <p>Random point</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/wkt_point.html">wkt_point</a></span>()
-<span class="co">#&gt; [1] "POINT (-123.2746528 44.6346842)"</span></code></pre></div>
+<span class="co">#&gt; [1] "POINT (177.3355721 -55.4310658)"</span></code></pre></div>
 <p>Random polygon</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/wkt_polygon.html">wkt_polygon</a></span>()
-<span class="co">#&gt; [1] "POLYGON ((25.7284771 51.8274173, 30.2622280 48.5460672, 27.2696693 44.5851084, 26.3932528 42.1228995, 24.7282633 37.6159086, 21.2497575 38.5791837, 21.1069626 45.1511914, 12.2701372 43.0152204, 18.4030804 48.4013650, 25.0629021 46.6033289, 25.7284771 51.8274173))"</span></code></pre></div>
+<span class="co">#&gt; [1] "POLYGON ((80.3553970 67.4829190, 76.2339566 60.3421464, 67.5297717 60.8033249, 63.1644959 60.4146022, 70.6905115 61.3864731, 71.6306770 62.0388143, 78.5702335 61.8073230, 60.5299208 62.6414972, 63.9503695 66.0836110, 78.7755513 65.0412462, 80.3553970 67.4829190))"</span></code></pre></div>
 </div>
 <div id="meta" class="section level2">
 <h2 class="hasAnchor">

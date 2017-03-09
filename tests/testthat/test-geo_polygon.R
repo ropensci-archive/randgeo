@@ -3,7 +3,8 @@ context("geo_polygon")
 test_that("geo_polygon works", {
   aa <- geo_polygon()
 
-  expect_is(aa, "list")
+  expect_is(aa, "geo_list")
+  expect_is(unclass(aa), "list")
   expect_equal(aa$type, "FeatureCollection")
   expect_is(aa$features, "list")
   expect_is(aa$features[[1]], "list")

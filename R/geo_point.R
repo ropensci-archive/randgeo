@@ -5,7 +5,8 @@
 #' @param bbox (integer/numeric) lat/long bounding box from which to generate
 #' positions; numeric vector of the form
 #' \code{west (long), south (lat), east (long), north (lat)}. optional
-#' @return GeoJSON; a list with one ore more Points in a FeatureCollection
+#' @return GeoJSON; a list with one ore more Points in a FeatureCollection,
+#' with class \code{geo_list} - simple \code{unclass()} to remove the class
 #' @examples
 #' geo_point()
 #' geo_point(10)
@@ -21,5 +22,5 @@ geo_point <- function(count = 1, bbox = NULL) {
       if (!is.null(bbox)) point(position(bbox)) else point()
     )
   }
-  fc(features)
+  structure(fc(features), class = "geo_list")
 }

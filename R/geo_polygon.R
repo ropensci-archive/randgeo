@@ -10,7 +10,8 @@
 #' @param bbox (integer/numeric) lat/long bounding box for the centers of the
 #' polygons, numeric vector of the form
 #' \code{west (long), south (lat), east (long), north (lat)}. optional
-#' @return GeoJSON; a list with one ore more Polygons in a FeatureCollection
+#' @return GeoJSON; a list with one ore more Polygons in a FeatureCollection,
+#' with class \code{geo_list} - simple \code{unclass()} to remove the class
 #' @examples
 #' geo_polygon()
 #' geo_polygon(10)
@@ -40,7 +41,7 @@ geo_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
 
     features[[i]] <- feature(polygon(vertices))
   }
-  fc(features)
+  structure(fc(features), class = "geo_list")
 }
 
 

@@ -106,7 +106,8 @@ polygons, numeric vector of the form
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>GeoJSON; a list with one ore more Polygons in a FeatureCollection</p>
+    <p>GeoJSON; a list with one ore more Polygons in a FeatureCollection,
+with class <code>geo_list</code> - simple <code>unclass()</code> to remove the class</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -164,7 +165,9 @@ polygons, numeric vector of the form
 #&gt; list()
 #&gt; 
 #&gt; 
-#&gt; </div><div class='input'><span class='fu'>geo_polygon</span>(<span class='fl'>10</span>)</div><div class='output co'>#&gt; $type
+#&gt; 
+#&gt; attr(,&quot;class&quot;)
+#&gt; [1] &quot;geo_list&quot;</div><div class='input'><span class='fu'>geo_polygon</span>(<span class='fl'>10</span>)</div><div class='output co'>#&gt; $type
 #&gt; [1] &quot;FeatureCollection&quot;
 #&gt; 
 #&gt; $features
@@ -668,7 +671,9 @@ polygons, numeric vector of the form
 #&gt; list()
 #&gt; 
 #&gt; 
-#&gt; </div><div class='input'><span class='fu'>geo_polygon</span>(<span class='kw'>bbox</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>50</span>, <span class='fl'>50</span>, <span class='fl'>60</span>, <span class='fl'>60</span>))</div><div class='output co'>#&gt; $type
+#&gt; 
+#&gt; attr(,&quot;class&quot;)
+#&gt; [1] &quot;geo_list&quot;</div><div class='input'><span class='fu'>geo_polygon</span>(<span class='kw'>bbox</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>50</span>, <span class='fl'>50</span>, <span class='fl'>60</span>, <span class='fl'>60</span>))</div><div class='output co'>#&gt; $type
 #&gt; [1] &quot;FeatureCollection&quot;
 #&gt; 
 #&gt; $features
@@ -722,7 +727,9 @@ polygons, numeric vector of the form
 #&gt; list()
 #&gt; 
 #&gt; 
-#&gt; </div></pre>
+#&gt; 
+#&gt; attr(,&quot;class&quot;)
+#&gt; [1] &quot;geo_list&quot;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

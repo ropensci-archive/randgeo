@@ -14,7 +14,8 @@ positions; numeric vector of the form
 \code{west (long), south (lat), east (long), north (lat)}. optional}
 }
 \value{
-GeoJSON; a list with one ore more Points in a FeatureCollection
+GeoJSON; a list with one ore more Points in a FeatureCollection,
+with class \code{geo_list} - simple \code{unclass()} to remove the class
 }
 \description{
 Random GeoJSON point
