@@ -39,7 +39,7 @@ feature <- function(x) {
   list(
     type = 'Feature',
     geometry = x,
-    properties = list()
+    properties = c()
   )
 }
 
