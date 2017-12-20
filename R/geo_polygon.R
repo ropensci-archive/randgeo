@@ -43,19 +43,3 @@ geo_polygon <- function(count = 1, num_vertices = 10, max_radial_length = 10,
   }
   structure(fc(features), class = "geo_list")
 }
-
-
-# from http://www.movable-type.co.uk/scripts/latlong.html
-destination <- function(origin, distance, bearing) {
-  origin <- origin * pi/180
-  #angular distance, constant is earth radius in degrees lat distance
-  adist <- distance*pi/180
-  dest <- numeric(2)
-  dest[2] <- asin(sin(origin[2]) * cos(adist) +
-                    cos(origin[2]) * sin(adist) * cos(bearing))
-  dest[1] <- origin[1] + atan2(sin(bearing) * sin(adist) * cos(origin[2]),
-                               cos(adist) - sin(origin[2]) * sin(dest[2]))
-  dest <- dest * 180/pi
-  dest[1] <- (dest[1] + 540) %% 360 - 180 # normalize to -180 to 180
-  return(dest)
-}

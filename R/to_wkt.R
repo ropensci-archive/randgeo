@@ -12,3 +12,11 @@ to_wkt_poly <- function(x, fmt) {
                                         collapse = " "), ""), collapse = ", ")
   )
 }
+
+to_wkt_linestring <- function(x, fmt) {
+  sprintf(
+    "LINESTRING (%s)",
+    paste0(vapply(x, function(z) paste0(format(z, nsmall = fmt, trim = TRUE),
+                                        collapse = " "), ""), collapse = ", ")
+  )
+}

@@ -37,8 +37,10 @@ Package API:
 
 * `rg_position` - random position (lon, lat)
 * `geo_point` - random GeoJSON point
+* `geo_linestring` - random GeoJSON linestring
 * `geo_polygon` - random GeoJSON polygon
 * `wkt_point` - random WKT point
+* `wkt_linestring` - random WKT linestring
 * `wkt_polygon` - random WKT polygon
 
 ## Docs
@@ -63,19 +65,30 @@ devtools::install_github("ropensci/randgeo")
 library("randgeo")
 ```
 
+```{r, include=FALSE}
+set.seed(42)
+```
+
 ## Generate a random position
 
 ```{r}
 rg_position()
 ```
 
-## Genrate random GeoJSON
+## Generate random GeoJSON
 
 Random point - evenly distributed across the sphere.  The `bbox` option allows
 you to limit points to within long/lat bounds.
 
 ```{r}
 geo_point()
+```
+
+Random linestring - starting from a random point, with default maximum segment
+length and maximum rotation between two segments.
+
+```{r}
+geo_linestring()
 ```
 
 Random polygon - centered on a random point, with default maximum size
@@ -99,6 +112,12 @@ Random point
 
 ```{r}
 wkt_point()
+```
+
+Random linestring
+
+```{r}
+wkt_linestring()
 ```
 
 Random polygon
