@@ -27,7 +27,7 @@ the line, numeric vector of the form \code{west (long), south (lat), east
 \item{fmt}{(integer/numeric) number of digits. Default: 7}
 }
 \value{
-WKT; a character vector with one or more POLYGON strings
+WKT; a character vector with one or more LINESTRING strings
 }
 \description{
 Random WKT linestring
