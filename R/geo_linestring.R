@@ -34,8 +34,8 @@ geo_linestring <- function(count = 1, num_vertices = 10, max_length = 0.001,
     prior_bearing <- stats::runif(1) * 2 * pi
 
     for(j in seq_len(num_vertices-1)) {
-      bearing <- prior_bearing + runif(1, -0.5, 0.5) * max_rotation * 2
-      distance <- runif(1, max = max_length)
+      bearing <- prior_bearing + stats::runif(1, -0.5, 0.5) * max_rotation * 2
+      distance <- stats::runif(1, max = max_length)
       vertices[[j+1]] <- destination(vertices[[j]], distance, bearing)
       prior_bearing <- final_bearing(vertices[[j]], vertices[[j+1]])
     }

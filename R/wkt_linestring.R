@@ -1,7 +1,6 @@
 #' Random WKT linestring
 #'
 #' @export
-
 #' @param count (integer/numeric) number of Polygons. Default: 1
 #' @param num_vertices (integer/numeric) how many coordinates each polygon will
 #'   contain. Default: 10
@@ -14,7 +13,7 @@
 #'   the line, numeric vector of the form \code{west (long), south (lat), east
 #'   (long), north (lat)}. optional
 #' @param fmt (integer/numeric) number of digits. Default: 7
-#' @return WKT; a character vector with one or more POLYGON strings
+#' @return WKT; a character vector with one or more LINESTRING strings
 #' @examples
 #' wkt_linestring()
 #' wkt_linestring(10)
