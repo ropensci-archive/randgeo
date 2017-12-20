@@ -6,8 +6,8 @@ test_that("wkt_linestring works", {
 
   expect_is(aa, "character")
   expect_match(aa, "LINESTRING")
-  expect_match(aa, "\\(\\(")
-  expect_match(aa, "\\)\\)")
+  expect_match(aa, "\\(")
+  expect_match(aa, "\\)")
 
   xx <- as.numeric(
     strsplit(regmatches(aa, regexpr('[0-9.-]+\\s[0-9.-]+', aa)), " ")[[1]]

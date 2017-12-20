@@ -65,6 +65,10 @@ devtools::install_github("ropensci/randgeo")
 library("randgeo")
 ```
 
+```{r, include=FALSE}
+set.seed(42)
+```
+
 ## Generate a random position
 
 ```{r}
