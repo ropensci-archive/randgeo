@@ -23,14 +23,17 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -49,10 +52,25 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
-  <a href="../articles/index.html">Articles</a>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/randgeo_vignette.html">Introduction to the randgeo package</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -84,17 +102,22 @@
     <p>Random position</p>
     
 
-    <pre><span class='fu'>rg_position</span>(<span class='kw'>count</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>bbox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>rg_position</span>(<span class='kw'>count</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>bbox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>count</dt>
-      <dd>(integer/numeric) number of positions. Default: 1</dd>
-      <dt>bbox</dt>
-      <dd>(integer/numeric) lat/long bounding box from which to generate
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>count</th>
+      <td><p>(integer/numeric) number of positions. Default: 1</p></td>
+    </tr>
+    <tr>
+      <th>bbox</th>
+      <td><p>(integer/numeric) lat/long bounding box from which to generate
 positions; numeric vector of the form
-<code>west (long), south (lat), east (long), north (lat)</code>. optional</dd>
-    </dl>
+<code>west (long), south (lat), east (long), north (lat)</code>. optional</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -103,353 +126,353 @@ positions; numeric vector of the form
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>rg_position</span>()</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] 121.12065 -12.16554
+#&gt; [1] 8.740848 0.363802
 #&gt; </div><div class='input'><span class='fu'>rg_position</span>(<span class='fl'>10</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] 146.47661  68.15292
+#&gt; [1] -174.70123  -66.32505
 #&gt; 
 #&gt; [[2]]
-#&gt; [1] -132.68934   54.28584
+#&gt; [1] -16.88788 -74.37895
 #&gt; 
 #&gt; [[3]]
-#&gt; [1] 70.77012 10.86774
+#&gt; [1] 16.09386 16.25514
 #&gt; 
 #&gt; [[4]]
-#&gt; [1] -156.37081   48.33244
+#&gt; [1]  1.132598 58.291455
 #&gt; 
 #&gt; [[5]]
-#&gt; [1] 157.43888  34.55795
+#&gt; [1] 169.12508 -17.27766
 #&gt; 
 #&gt; [[6]]
-#&gt; [1] 59.79312 36.31319
+#&gt; [1] 174.443568  -4.144179
 #&gt; 
 #&gt; [[7]]
-#&gt; [1]  17.49292 -40.91986
+#&gt; [1] 93.981386 -7.398605
 #&gt; 
 #&gt; [[8]]
-#&gt; [1] -134.07925   28.53058
+#&gt; [1] 100.24355 -16.14815
 #&gt; 
 #&gt; [[9]]
-#&gt; [1] -76.16987  76.03943
+#&gt; [1] -43.57414  16.31623
 #&gt; 
 #&gt; [[10]]
-#&gt; [1] 127.34054   9.89856
+#&gt; [1] 123.923310   4.962381
 #&gt; </div><div class='input'><span class='fu'>rg_position</span>(<span class='fl'>100</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; [1]  90.36498 -25.97812
+#&gt; [1] -115.54766  -68.81499
 #&gt; 
 #&gt; [[2]]
-#&gt; [1]   5.527908 -71.745132
+#&gt; [1] 76.8283 71.8470
 #&gt; 
 #&gt; [[3]]
-#&gt; [1] -50.12008  41.23957
+#&gt; [1]  45.52434 -40.98357
 #&gt; 
 #&gt; [[4]]
-#&gt; [1] 101.93064  69.74352
+#&gt; [1]  51.50485 -24.64335
 #&gt; 
 #&gt; [[5]]
-#&gt; [1] 104.1913  41.8200
+#&gt; [1] 133.46178  25.87281
 #&gt; 
 #&gt; [[6]]
-#&gt; [1] -169.66348  -34.88299
+#&gt; [1] -117.63906   51.32104
 #&gt; 
 #&gt; [[7]]
-#&gt; [1] 117.11083 -68.50989
+#&gt; [1]  31.03999 -44.54286
 #&gt; 
 #&gt; [[8]]
-#&gt; [1] -43.68918  40.63420
+#&gt; [1] 151.74942 -20.56831
 #&gt; 
 #&gt; [[9]]
-#&gt; [1]  37.35014 -37.65660
+#&gt; [1] -53.78826  79.32195
 #&gt; 
 #&gt; [[10]]
-#&gt; [1] -166.79541  -27.76339
+#&gt; [1] -24.87643 -26.73536
 #&gt; 
 #&gt; [[11]]
-#&gt; [1] -102.50184   75.46482
+#&gt; [1] -31.5877  -5.8385
 #&gt; 
 #&gt; [[12]]
-#&gt; [1] -133.70307  -21.84681
+#&gt; [1] -123.71019   66.06375
 #&gt; 
 #&gt; [[13]]
-#&gt; [1] 51.09886 20.20151
+#&gt; [1] 66.471881 -1.650633
 #&gt; 
 #&gt; [[14]]
-#&gt; [1] -40.50649 -24.51937
+#&gt; [1] 160.44763 -43.32957
 #&gt; 
 #&gt; [[15]]
-#&gt; [1]  71.15595 -58.35483
+#&gt; [1] -156.64209  -31.61587
 #&gt; 
 #&gt; [[16]]
-#&gt; [1] -14.75362 -11.06418
+#&gt; [1] -151.7817   47.1372
 #&gt; 
 #&gt; [[17]]
-#&gt; [1] -120.596044   -7.690367
+#&gt; [1] 111.490632  -6.820918
 #&gt; 
 #&gt; [[18]]
-#&gt; [1] 143.3079 -10.8912
+#&gt; [1] 84.14269 17.49419
 #&gt; 
 #&gt; [[19]]
-#&gt; [1] 119.40837 -10.76707
+#&gt; [1] 173.7607  10.5033
 #&gt; 
 #&gt; [[20]]
-#&gt; [1] 100.4294  11.7977
+#&gt; [1] -50.08547 -17.75937
 #&gt; 
 #&gt; [[21]]
-#&gt; [1] 125.95780 -28.92676
+#&gt; [1] -128.31868  -21.19832
 #&gt; 
 #&gt; [[22]]
-#&gt; [1] -65.59552  50.95392
+#&gt; [1] 129.3429 -42.6299
 #&gt; 
 #&gt; [[23]]
-#&gt; [1] -143.6057  -36.8839
+#&gt; [1] 137.27265  31.64162
 #&gt; 
 #&gt; [[24]]
-#&gt; [1] -43.21917  63.45685
+#&gt; [1]  28.30710 -52.73136
 #&gt; 
 #&gt; [[25]]
-#&gt; [1] 175.14313 -12.02555
+#&gt; [1] -56.00555 -31.44746
 #&gt; 
 #&gt; [[26]]
-#&gt; [1] -126.438220   -4.446049
+#&gt; [1]  83.19731 -44.81862
 #&gt; 
 #&gt; [[27]]
-#&gt; [1] -134.71588  -67.87487
+#&gt; [1] 171.29449  50.70586
 #&gt; 
 #&gt; [[28]]
-#&gt; [1] -163.1034   42.6238
+#&gt; [1] 169.29442 -17.22744
 #&gt; 
 #&gt; [[29]]
-#&gt; [1] 157.13547 -70.28168
+#&gt; [1] -159.813704    3.079745
 #&gt; 
 #&gt; [[30]]
-#&gt; [1]  75.69866 -50.37022
+#&gt; [1] -73.93500 -12.74423
 #&gt; 
 #&gt; [[31]]
-#&gt; [1] 171.67511  68.46612
+#&gt; [1] -136.40080  -15.00083
 #&gt; 
 #&gt; [[32]]
-#&gt; [1] -22.04738 -16.79448
+#&gt; [1]  76.30391 -12.95382
 #&gt; 
 #&gt; [[33]]
-#&gt; [1] 178.13967  21.75724
+#&gt; [1] -167.60548  -19.37695
 #&gt; 
 #&gt; [[34]]
-#&gt; [1] 128.117508  -4.627387
+#&gt; [1] 55.068220  5.525176
 #&gt; 
 #&gt; [[35]]
-#&gt; [1] 134.43025  -1.78627
+#&gt; [1]   6.049477 -20.684489
 #&gt; 
 #&gt; [[36]]
-#&gt; [1] 133.00535 -45.48322
+#&gt; [1] 137.13591 -27.54585
 #&gt; 
 #&gt; [[37]]
-#&gt; [1] -55.55405  88.83311
+#&gt; [1] -36.496867   7.987595
 #&gt; 
 #&gt; [[38]]
-#&gt; [1] -106.13529  -62.92871
+#&gt; [1] -127.653355    5.610158
 #&gt; 
 #&gt; [[39]]
-#&gt; [1] -78.71994 -49.62919
+#&gt; [1] 28.36134 59.22304
 #&gt; 
 #&gt; [[40]]
-#&gt; [1] 166.00186  82.73102
+#&gt; [1] 87.237425 -5.649427
 #&gt; 
 #&gt; [[41]]
-#&gt; [1] 19.04407 34.16154
+#&gt; [1] 48.43594 46.61402
 #&gt; 
 #&gt; [[42]]
-#&gt; [1]  52.82177 -27.09094
+#&gt; [1] 154.88406 -17.59203
 #&gt; 
 #&gt; [[43]]
-#&gt; [1] 134.13148  13.65275
+#&gt; [1] 10.33534 33.35118
 #&gt; 
 #&gt; [[44]]
-#&gt; [1] 141.38845 -43.45152
+#&gt; [1] 173.97607  51.43509
 #&gt; 
 #&gt; [[45]]
-#&gt; [1] 82.71404 67.39401
+#&gt; [1] -154.81961  -33.73076
 #&gt; 
 #&gt; [[46]]
-#&gt; [1] -59.82361 -29.90380
+#&gt; [1] 56.99600 28.78959
 #&gt; 
 #&gt; [[47]]
-#&gt; [1] 148.73688  36.25229
+#&gt; [1] 150.60162  44.63431
 #&gt; 
 #&gt; [[48]]
-#&gt; [1] -10.16798  13.27551
+#&gt; [1] 50.64497 36.69271
 #&gt; 
 #&gt; [[49]]
-#&gt; [1] -38.60931  34.28593
+#&gt; [1]  87.70367 -44.04912
 #&gt; 
 #&gt; [[50]]
-#&gt; [1] -177.40478   15.81759
+#&gt; [1] 127.30891 -37.36029
 #&gt; 
 #&gt; [[51]]
-#&gt; [1]   9.398423 -43.497805
+#&gt; [1] -171.40436  -36.21063
 #&gt; 
 #&gt; [[52]]
-#&gt; [1] -131.04318   14.30392
+#&gt; [1] 139.15818 -11.54133
 #&gt; 
 #&gt; [[53]]
-#&gt; [1] -85.2088865   0.2460323
+#&gt; [1] -24.19626 -57.19841
 #&gt; 
 #&gt; [[54]]
-#&gt; [1] -172.97091   55.65266
+#&gt; [1] 41.765194  7.386601
 #&gt; 
 #&gt; [[55]]
-#&gt; [1] 178.54656 -62.16113
+#&gt; [1] 143.02959 -32.54943
 #&gt; 
 #&gt; [[56]]
-#&gt; [1] -135.2256   50.3199
+#&gt; [1] -133.878327   -4.431446
 #&gt; 
 #&gt; [[57]]
-#&gt; [1] -47.992283   3.320426
+#&gt; [1] -133.554159   -1.256584
 #&gt; 
 #&gt; [[58]]
-#&gt; [1] 102.30208   1.10097
+#&gt; [1] 15.76537 31.09428
 #&gt; 
 #&gt; [[59]]
-#&gt; [1] -143.29766  -62.48866
+#&gt; [1] 109.13188 -63.61491
 #&gt; 
 #&gt; [[60]]
-#&gt; [1] 74.2102208 -0.2594633
+#&gt; [1] -33.349916  -1.689847
 #&gt; 
 #&gt; [[61]]
-#&gt; [1] 10.77652 28.89116
+#&gt; [1] 173.35507  16.95536
 #&gt; 
 #&gt; [[62]]
-#&gt; [1]  76.23123 -69.54142
+#&gt; [1] -15.89755  34.05238
 #&gt; 
 #&gt; [[63]]
-#&gt; [1]  57.9880 -36.3347
+#&gt; [1] -150.54011   15.16074
 #&gt; 
 #&gt; [[64]]
-#&gt; [1] -153.64471  -50.30773
+#&gt; [1] -134.40003  -28.66875
 #&gt; 
 #&gt; [[65]]
-#&gt; [1] 117.61214 -26.84176
+#&gt; [1] 164.11186 -19.71544
 #&gt; 
 #&gt; [[66]]
-#&gt; [1] -47.761552  -2.685682
+#&gt; [1] -11.487834  -4.380799
 #&gt; 
 #&gt; [[67]]
-#&gt; [1] -10.84359  53.40478
+#&gt; [1] -60.85667 -14.91372
 #&gt; 
 #&gt; [[68]]
-#&gt; [1] 5.772568 5.769826
+#&gt; [1] -17.08111 -50.89854
 #&gt; 
 #&gt; [[69]]
-#&gt; [1]  17.80616 -17.39829
+#&gt; [1] 102.31266  46.37583
 #&gt; 
 #&gt; [[70]]
-#&gt; [1] -122.74746   24.36188
+#&gt; [1] -78.72730 -24.44962
 #&gt; 
 #&gt; [[71]]
-#&gt; [1] 140.86255 -10.14601
+#&gt; [1] -20.81271 -20.81778
 #&gt; 
 #&gt; [[72]]
-#&gt; [1] 47.96336 28.74950
+#&gt; [1] 72.25739 59.67634
 #&gt; 
 #&gt; [[73]]
-#&gt; [1] -65.44342  18.75319
+#&gt; [1] 165.06127  30.73266
 #&gt; 
 #&gt; [[74]]
-#&gt; [1] 93.87401 78.02965
+#&gt; [1] 153.4620005  -0.3147934
 #&gt; 
 #&gt; [[75]]
-#&gt; [1] -157.27056   28.18477
+#&gt; [1] 156.786171   7.030676
 #&gt; 
 #&gt; [[76]]
-#&gt; [1] 33.78117 23.88360
+#&gt; [1] -53.824847   2.693425
 #&gt; 
 #&gt; [[77]]
-#&gt; [1] -145.93580  -31.50082
+#&gt; [1] 167.8174  23.9335
 #&gt; 
 #&gt; [[78]]
-#&gt; [1] 98.09167 11.30427
+#&gt; [1] -75.36661 -46.00864
 #&gt; 
 #&gt; [[79]]
-#&gt; [1] -158.73014  -30.03281
+#&gt; [1] -110.40744  -38.18603
 #&gt; 
 #&gt; [[80]]
-#&gt; [1] 10.19605 26.64042
+#&gt; [1] -48.42486  29.64342
 #&gt; 
 #&gt; [[81]]
-#&gt; [1] -85.954482  -5.029137
+#&gt; [1] 128.18916  47.72726
 #&gt; 
 #&gt; [[82]]
-#&gt; [1] -108.35972  -16.86451
+#&gt; [1] 105.08676  16.75004
 #&gt; 
 #&gt; [[83]]
-#&gt; [1] 90.08634 27.26098
+#&gt; [1] 167.16378  49.69692
 #&gt; 
 #&gt; [[84]]
-#&gt; [1] 135.22389 -44.70739
+#&gt; [1] -15.062166  -2.711152
 #&gt; 
 #&gt; [[85]]
-#&gt; [1] -163.49425   13.76182
+#&gt; [1] 121.34222  68.90611
 #&gt; 
 #&gt; [[86]]
-#&gt; [1] -114.00766  -57.52217
+#&gt; [1] -164.40176  -35.74691
 #&gt; 
 #&gt; [[87]]
-#&gt; [1] 146.22727  37.88752
+#&gt; [1] -107.02837   59.58816
 #&gt; 
 #&gt; [[88]]
-#&gt; [1] 131.1751  76.7689
+#&gt; [1] 131.19879  57.75993
 #&gt; 
 #&gt; [[89]]
-#&gt; [1] 138.83772  12.52795
+#&gt; [1] -24.83877 -71.30623
 #&gt; 
 #&gt; [[90]]
-#&gt; [1] -152.57653  -17.07137
+#&gt; [1]  25.54464 -30.58482
 #&gt; 
 #&gt; [[91]]
-#&gt; [1] 149.99540 -41.99126
+#&gt; [1] -92.71644 -14.73304
 #&gt; 
 #&gt; [[92]]
-#&gt; [1]   0.4489453 -11.7879125
+#&gt; [1] -119.37074    6.33957
 #&gt; 
 #&gt; [[93]]
-#&gt; [1] -11.17475 -50.60135
+#&gt; [1] -120.71692   49.76898
 #&gt; 
 #&gt; [[94]]
-#&gt; [1] 61.39746 12.26565
+#&gt; [1] -47.71282 -63.26768
 #&gt; 
 #&gt; [[95]]
-#&gt; [1] 18.46464 30.99843
+#&gt; [1] 135.14787  28.67771
 #&gt; 
 #&gt; [[96]]
-#&gt; [1] -106.84482   59.69103
+#&gt; [1] 56.62744 49.13653
 #&gt; 
 #&gt; [[97]]
-#&gt; [1] -69.38145 -80.48286
+#&gt; [1] -65.21471 -14.24815
 #&gt; 
 #&gt; [[98]]
-#&gt; [1] -138.12870  -25.52127
+#&gt; [1] -19.08093 -24.61929
 #&gt; 
 #&gt; [[99]]
-#&gt; [1] -98.60086  47.16401
+#&gt; [1] 140.41044  52.31532
 #&gt; 
 #&gt; [[100]]
-#&gt; [1] 153.82143 -52.02183
+#&gt; [1]  46.94822 -43.08776
 #&gt; </div><div class='input'><span class='fu'>rg_position</span>(<span class='kw'>bbox</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>50</span>, <span class='fl'>50</span>, <span class='fl'>60</span>, <span class='fl'>60</span>))</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] 52.03664 52.34821
+#&gt; [1] 53.64262 55.92704
 #&gt; </div><div class='input'>
 <span class='co'># coerce to data.frame</span>
-<span class='kw'>stats</span><span class='kw'>::</span><span class='fu'>setNames</span>(
+<span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/stats/topics/setNames'>setNames</a></span>(
   <span class='fu'>do.call</span>(<span class='st'>"rbind.data.frame"</span>, <span class='fu'>rg_position</span>(<span class='fl'>10</span>)),
   <span class='fu'>c</span>(<span class='st'>'lng'</span>, <span class='st'>'lat'</span>)
-)</div><div class='output co'>#&gt;            lng        lat
-#&gt; 1    41.042017   6.719089
-#&gt; 2   -66.385913  52.879920
-#&gt; 3   -81.847370 -17.902539
-#&gt; 4   154.033237  71.218036
-#&gt; 5    21.416831 -45.100606
-#&gt; 6  -152.682102  36.039460
-#&gt; 7    -1.479727  28.443122
-#&gt; 8   -30.253878   6.990225
-#&gt; 9  -114.343949  57.494884
-#&gt; 10 -173.602816 -27.152470</div></pre>
+)</div><div class='output co'>#&gt;           lng       lat
+#&gt; 1  -14.130895  42.31262
+#&gt; 2    4.992070  45.51771
+#&gt; 3   54.107532  43.58350
+#&gt; 4    2.991550  55.92032
+#&gt; 5    1.089599  67.34728
+#&gt; 6  116.651836  25.34253
+#&gt; 7  -91.169688  11.77172
+#&gt; 8   47.553435 -63.78694
+#&gt; 9  -57.557072 -14.75770
+#&gt; 10 116.969542  45.21614</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -466,7 +489,7 @@ positions; numeric vector of the form
 
       <footer>
       <div class="copyright">
-  <p>Developed by Scott Chamberlain, Noam Ross.</p>
+  <p>Developed by Scott Chamberlain, Noam Ross, Samuel Bosch.</p>
 </div>
 
 <div class="pkgdown">

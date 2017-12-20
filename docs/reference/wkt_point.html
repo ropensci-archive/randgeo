@@ -23,14 +23,17 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -49,10 +52,25 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
-  <a href="../articles/index.html">Articles</a>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/randgeo_vignette.html">Introduction to the randgeo package</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -84,19 +102,26 @@
     <p>Random WKT point</p>
     
 
-    <pre><span class='fu'>wkt_point</span>(<span class='kw'>count</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>bbox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fmt</span> <span class='kw'>=</span> <span class='fl'>7</span>)</pre>
+    <pre class="usage"><span class='fu'>wkt_point</span>(<span class='kw'>count</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>bbox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fmt</span> <span class='kw'>=</span> <span class='fl'>7</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>count</dt>
-      <dd>(integer/numeric) number of points. Default: 1</dd>
-      <dt>bbox</dt>
-      <dd>(integer/numeric) lat/long bounding box from which to generate
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>count</th>
+      <td><p>(integer/numeric) number of points. Default: 1</p></td>
+    </tr>
+    <tr>
+      <th>bbox</th>
+      <td><p>(integer/numeric) lat/long bounding box from which to generate
 positions; numeric vector of the form
-<code>west (long), south (lat), east (long), north (lat)</code>. optional</dd>
-      <dt>fmt</dt>
-      <dd>(integer/numeric) number of digits. Default: 7</dd>
-    </dl>
+<code>west (long), south (lat), east (long), north (lat)</code>. optional</p></td>
+    </tr>
+    <tr>
+      <th>fmt</th>
+      <td><p>(integer/numeric) number of digits. Default: 7</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -104,62 +129,62 @@ positions; numeric vector of the form
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>wkt_point</span>()</div><div class='output co'>#&gt; [1] &quot;POINT (169.5042089 -4.0389827)&quot;</div><div class='input'><span class='fu'>wkt_point</span>(<span class='fl'>10</span>)</div><div class='output co'>#&gt;  [1] &quot;POINT (-120.0633236 62.0856857)&quot;  &quot;POINT (-14.7099532 -14.2171553)&quot; 
-#&gt;  [3] &quot;POINT (34.1349125 -29.0804018)&quot;   &quot;POINT (8.7408484 0.3638020)&quot;     
-#&gt;  [5] &quot;POINT (-174.7012310 -66.3250514)&quot; &quot;POINT (-16.8878754 -74.3789490)&quot; 
-#&gt;  [7] &quot;POINT (16.0938598 16.2551435)&quot;    &quot;POINT (1.1325976 58.2914554)&quot;    
-#&gt;  [9] &quot;POINT (169.1250805 -17.2776626)&quot;  &quot;POINT (174.4435680 -4.1441787)&quot;  </div><div class='input'><span class='fu'>wkt_point</span>(<span class='fl'>100</span>)</div><div class='output co'>#&gt;   [1] &quot;POINT (93.9813858 -7.3986051)&quot;    &quot;POINT (100.2435493 -16.1481504)&quot; 
-#&gt;   [3] &quot;POINT (-43.5741352 16.3162348)&quot;   &quot;POINT (123.9233098 4.9623805)&quot;   
-#&gt;   [5] &quot;POINT (-115.5476554 -68.8149919)&quot; &quot;POINT (76.8283026 71.8469993)&quot;   
-#&gt;   [7] &quot;POINT (45.5243379 -40.9835746)&quot;   &quot;POINT (51.5048514 -24.6433451)&quot;  
-#&gt;   [9] &quot;POINT (133.4617753 25.8728092)&quot;   &quot;POINT (-117.6390569 51.3210407)&quot; 
-#&gt;  [11] &quot;POINT (31.0399890 -44.5428633)&quot;   &quot;POINT (151.7494235 -20.5683063)&quot; 
-#&gt;  [13] &quot;POINT (-53.7882615 79.3219491)&quot;   &quot;POINT (-24.8764347 -26.7353561)&quot; 
-#&gt;  [15] &quot;POINT (-31.5877007 -5.8385002)&quot;   &quot;POINT (-123.7101948 66.0637453)&quot; 
-#&gt;  [17] &quot;POINT (66.4718807 -1.6506329)&quot;    &quot;POINT (160.4476254 -43.3295719)&quot; 
-#&gt;  [19] &quot;POINT (-156.6420864 -31.6158719)&quot; &quot;POINT (-151.7816692 47.1371969)&quot; 
-#&gt;  [21] &quot;POINT (111.4906324 -6.8209179)&quot;   &quot;POINT (84.1426870 17.4941876)&quot;   
-#&gt;  [23] &quot;POINT (173.7607200 10.5033049)&quot;   &quot;POINT (-50.0854703 -17.7593719)&quot; 
-#&gt;  [25] &quot;POINT (-128.3186787 -21.1983199)&quot; &quot;POINT (129.3429217 -42.6298974)&quot; 
-#&gt;  [27] &quot;POINT (137.2726530 31.6416239)&quot;   &quot;POINT (28.3071045 -52.7313572)&quot;  
-#&gt;  [29] &quot;POINT (-56.0055490 -31.4474588)&quot;  &quot;POINT (83.1973123 -44.8186187)&quot;  
-#&gt;  [31] &quot;POINT (171.2944947 50.7058612)&quot;   &quot;POINT (169.2944207 -17.2274428)&quot; 
-#&gt;  [33] &quot;POINT (-159.8137044 3.0797449)&quot;   &quot;POINT (-73.9349953 -12.7442319)&quot; 
-#&gt;  [35] &quot;POINT (-136.4008031 -15.0008287)&quot; &quot;POINT (76.3039090 -12.9538157)&quot;  
-#&gt;  [37] &quot;POINT (-167.6054761 -19.3769455)&quot; &quot;POINT (55.0682195 5.5251758)&quot;    
-#&gt;  [39] &quot;POINT (6.0494767 -20.6844893)&quot;    &quot;POINT (137.1359139 -27.5458518)&quot; 
-#&gt;  [41] &quot;POINT (-36.4968665 7.9875948)&quot;    &quot;POINT (-127.6533552 5.6101579)&quot;  
-#&gt;  [43] &quot;POINT (28.3613370 59.2230430)&quot;    &quot;POINT (87.2374249 -5.6494271)&quot;   
-#&gt;  [45] &quot;POINT (48.4359380 46.6140247)&quot;    &quot;POINT (154.8840588 -17.5920290)&quot; 
-#&gt;  [47] &quot;POINT (10.3353381 33.3511821)&quot;    &quot;POINT (173.9760730 51.4350915)&quot;  
-#&gt;  [49] &quot;POINT (-154.8196138 -33.7307614)&quot; &quot;POINT (56.9960035 28.7895940)&quot;   
-#&gt;  [51] &quot;POINT (150.6016241 44.6343102)&quot;   &quot;POINT (50.6449746 36.6927117)&quot;   
-#&gt;  [53] &quot;POINT (87.7036734 -44.0491238)&quot;   &quot;POINT (127.3089143 -37.3602926)&quot; 
-#&gt;  [55] &quot;POINT (-171.4043647 -36.2106341)&quot; &quot;POINT (139.1581838 -11.5413260)&quot; 
-#&gt;  [57] &quot;POINT (-24.1962601 -57.1984138)&quot;  &quot;POINT (41.7651941 7.3866009)&quot;    
-#&gt;  [59] &quot;POINT (143.0295876 -32.5494319)&quot;  &quot;POINT (-133.8783270 -4.4314463)&quot; 
-#&gt;  [61] &quot;POINT (-133.5541587 -1.2565839)&quot;  &quot;POINT (15.7653688 31.0942785)&quot;   
-#&gt;  [63] &quot;POINT (109.1318815 -63.6149116)&quot;  &quot;POINT (-33.3499157 -1.6898474)&quot;  
-#&gt;  [65] &quot;POINT (173.3550661 16.9553599)&quot;   &quot;POINT (-15.8975468 34.0523806)&quot;  
-#&gt;  [67] &quot;POINT (-150.5401115 15.1607394)&quot;  &quot;POINT (-134.4000298 -28.6687496)&quot;
-#&gt;  [69] &quot;POINT (164.1118629 -19.7154432)&quot;  &quot;POINT (-11.4878344 -4.3807991)&quot;  
-#&gt;  [71] &quot;POINT (-60.8566673 -14.9137213)&quot;  &quot;POINT (-17.0811102 -50.8985417)&quot; 
-#&gt;  [73] &quot;POINT (102.3126551 46.3758312)&quot;   &quot;POINT (-78.7272985 -24.4496225)&quot; 
-#&gt;  [75] &quot;POINT (-20.8127087 -20.8177804)&quot;  &quot;POINT (72.2573948 59.6763430)&quot;   
-#&gt;  [77] &quot;POINT (165.0612674 30.7326591)&quot;   &quot;POINT (153.4620005 -0.3147934)&quot;  
-#&gt;  [79] &quot;POINT (156.7861711 7.0306762)&quot;    &quot;POINT (-53.8248468 2.6934250)&quot;   
-#&gt;  [81] &quot;POINT (167.8174290 23.9335049)&quot;   &quot;POINT (-75.3666090 -46.0086360)&quot; 
-#&gt;  [83] &quot;POINT (-110.4074399 -38.1860282)&quot; &quot;POINT (-48.4248555 29.6434231)&quot;  
-#&gt;  [85] &quot;POINT (128.1891650 47.7272639)&quot;   &quot;POINT (105.0867578 16.7500426)&quot;  
-#&gt;  [87] &quot;POINT (167.1637816 49.6969219)&quot;   &quot;POINT (-15.0621662 -2.7111520)&quot;  
-#&gt;  [89] &quot;POINT (121.3422213 68.9061109)&quot;   &quot;POINT (-164.4017618 -35.7469095)&quot;
-#&gt;  [91] &quot;POINT (-107.0283727 59.5881626)&quot;  &quot;POINT (131.1987864 57.7599290)&quot;  
-#&gt;  [93] &quot;POINT (-24.8387693 -71.3062268)&quot;  &quot;POINT (25.5446438 -30.5848159)&quot;  
-#&gt;  [95] &quot;POINT (-92.7164415 -14.7330428)&quot;  &quot;POINT (-119.3707429 6.3395696)&quot;  
-#&gt;  [97] &quot;POINT (-120.7169157 49.7689772)&quot;  &quot;POINT (-47.7128194 -63.2676826)&quot; 
-#&gt;  [99] &quot;POINT (135.1478748 28.6777070)&quot;   &quot;POINT (56.6274374 49.1365292)&quot;   </div><div class='input'>
-<span class='fu'>wkt_point</span>(<span class='kw'>fmt</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; [1] &quot;POINT (-65.21471 -14.24815)&quot;</div><div class='input'><span class='fu'>wkt_point</span>(<span class='kw'>fmt</span> <span class='kw'>=</span> <span class='fl'>6</span>)</div><div class='output co'>#&gt; [1] &quot;POINT (-19.080925 -24.619290)&quot;</div><div class='input'><span class='fu'>wkt_point</span>(<span class='kw'>fmt</span> <span class='kw'>=</span> <span class='fl'>7</span>)</div><div class='output co'>#&gt; [1] &quot;POINT (140.4104400 52.3153176)&quot;</div><div class='input'>
-<span class='fu'>wkt_point</span>(<span class='kw'>bbox</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>50</span>, <span class='fl'>50</span>, <span class='fl'>60</span>, <span class='fl'>60</span>))</div><div class='output co'>#&gt; [1] &quot;POINT (56.3041172 58.2317218)&quot;</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>wkt_point</span>()</div><div class='output co'>#&gt; [1] "POINT (177.3290555 -24.6973475)"</div><div class='input'><span class='fu'>wkt_point</span>(<span class='fl'>10</span>)</div><div class='output co'>#&gt;  [1] "POINT (6.2946566 -24.6745885)"   "POINT (-44.9494277 29.3703253)" 
+#&gt;  [3] "POINT (178.7086565 -2.6245327)"  "POINT (77.6913904 84.2767260)"  
+#&gt;  [5] "POINT (-74.5312420 39.6702326)"  "POINT (-33.2661989 34.4723334)" 
+#&gt;  [7] "POINT (-154.3166387 29.5627741)" "POINT (54.8926276 -27.9621522)" 
+#&gt;  [9] "POINT (114.3047319 22.8313120)"  "POINT (138.6891246 -12.3051206)"</div><div class='input'><span class='fu'>wkt_point</span>(<span class='fl'>100</span>)</div><div class='output co'>#&gt;   [1] "POINT (137.1669006 -21.0904479)"  "POINT (-128.5402816 -32.0683913)"
+#&gt;   [3] "POINT (45.7079866 -27.4307966)"   "POINT (-27.4664121 27.6027422)"  
+#&gt;   [5] "POINT (96.8572931 -10.0608138)"   "POINT (143.4843920 -47.7867364)" 
+#&gt;   [7] "POINT (-36.2497546 -68.4719802)"  "POINT (-1.4432237 3.8304955)"    
+#&gt;   [9] "POINT (-141.2119688 -55.9547924)" "POINT (-128.2307581 28.0099973)" 
+#&gt;  [11] "POINT (-126.5533025 9.8751968)"   "POINT (-140.7781175 30.3874019)" 
+#&gt;  [13] "POINT (32.6315195 20.0881465)"    "POINT (83.8693879 -27.1170920)"  
+#&gt;  [15] "POINT (16.4604317 -27.8716608)"   "POINT (156.0090152 30.8782049)"  
+#&gt;  [17] "POINT (-78.1347402 34.5237695)"   "POINT (-136.7850858 41.2596689)" 
+#&gt;  [19] "POINT (7.7503985 -67.9700722)"    "POINT (139.6341070 -15.8365015)" 
+#&gt;  [21] "POINT (-61.4231095 -11.7970015)"  "POINT (97.9781523 35.4315134)"   
+#&gt;  [23] "POINT (30.3510118 -4.8272416)"    "POINT (-146.7372086 15.1483027)" 
+#&gt;  [25] "POINT (162.8745923 -64.0764914)"  "POINT (-18.0803442 28.7091463)"  
+#&gt;  [27] "POINT (-173.1937788 -26.2833142)" "POINT (163.0114737 6.8663283)"   
+#&gt;  [29] "POINT (1.4444566 65.9072731)"     "POINT (152.0908041 -57.9493285)" 
+#&gt;  [31] "POINT (38.0331769 82.6737113)"    "POINT (56.4683171 44.2781338)"   
+#&gt;  [33] "POINT (-108.3021599 31.3807843)"  "POINT (58.1666283 31.0925748)"   
+#&gt;  [35] "POINT (-154.2420941 -24.1636235)" "POINT (-66.4571124 14.3739573)"  
+#&gt;  [37] "POINT (113.4351870 36.7897304)"   "POINT (-71.3051328 55.5438583)"  
+#&gt;  [39] "POINT (-114.0047539 35.9016900)"  "POINT (127.7854196 28.3059868)"  
+#&gt;  [41] "POINT (160.3203388 -35.8362667)"  "POINT (119.3694813 -13.7658417)" 
+#&gt;  [43] "POINT (-20.2558937 -68.3183941)"  "POINT (-121.6084667 38.9537173)" 
+#&gt;  [45] "POINT (40.7165110 2.1222077)"     "POINT (-37.3903569 21.2530213)"  
+#&gt;  [47] "POINT (121.8150032 23.6777992)"   "POINT (41.7822610 4.3467490)"    
+#&gt;  [49] "POINT (158.1141441 80.9012392)"   "POINT (-54.2061054 -7.6165550)"  
+#&gt;  [51] "POINT (10.4245429 -15.9042644)"   "POINT (-53.7134834 -58.0318342)" 
+#&gt;  [53] "POINT (-9.3451599 -33.7981121)"   "POINT (107.5451528 -49.2004178)" 
+#&gt;  [55] "POINT (147.5437878 6.2533207)"    "POINT (-75.7586418 23.1648853)"  
+#&gt;  [57] "POINT (150.8487653 -60.6246337)"  "POINT (61.7933976 14.9194048)"   
+#&gt;  [59] "POINT (24.1673170 2.4531874)"     "POINT (24.3895624 25.2724008)"   
+#&gt;  [61] "POINT (93.4556863 32.8927671)"    "POINT (-26.4580584 4.9812966)"   
+#&gt;  [63] "POINT (75.5664332 25.1561098)"    "POINT (98.3016946 -8.5761976)"   
+#&gt;  [65] "POINT (-172.1535253 -33.0966487)" "POINT (-158.7135839 70.8570571)" 
+#&gt;  [67] "POINT (86.7047739 -10.7568618)"   "POINT (67.2036187 -28.0745789)"  
+#&gt;  [69] "POINT (-14.0021254 -18.9049138)"  "POINT (-179.6551403 -72.1628643)"
+#&gt;  [71] "POINT (-100.7411557 22.7893560)"  "POINT (83.3639894 47.1374390)"   
+#&gt;  [73] "POINT (-144.0590180 41.0889340)"  "POINT (42.1853723 -21.5015635)"  
+#&gt;  [75] "POINT (104.6066648 34.9949159)"   "POINT (105.1239188 -10.6768054)" 
+#&gt;  [77] "POINT (38.2548967 51.1200556)"    "POINT (-109.5808902 80.3528443)" 
+#&gt;  [79] "POINT (158.7134143 59.7211007)"   "POINT (-130.7054950 19.5339864)" 
+#&gt;  [81] "POINT (-3.7122150 40.8507546)"    "POINT (-156.6218730 5.5472171)"  
+#&gt;  [83] "POINT (-43.4151526 -54.9445673)"  "POINT (-169.2192752 37.6189572)" 
+#&gt;  [85] "POINT (64.6125737 -29.6653063)"   "POINT (53.8335772 57.6546522)"   
+#&gt;  [87] "POINT (35.8753162 -49.2900977)"   "POINT (83.5333762 57.1289098)"   
+#&gt;  [89] "POINT (119.7899323 -46.8370720)"  "POINT (76.6673898 -30.9850381)"  
+#&gt;  [91] "POINT (-135.9237902 37.7780453)"  "POINT (-66.8958158 46.4633607)"  
+#&gt;  [93] "POINT (125.2090369 1.6936822)"    "POINT (-10.7126185 -35.5977295)" 
+#&gt;  [95] "POINT (-67.3260218 22.4868247)"   "POINT (-55.7440791 -41.0628595)" 
+#&gt;  [97] "POINT (-81.3616206 7.9510964)"    "POINT (-29.9167776 47.0018398)"  
+#&gt;  [99] "POINT (67.0829035 40.9836598)"    "POINT (152.4576397 -13.1491769)" </div><div class='input'>
+<span class='fu'>wkt_point</span>(<span class='kw'>fmt</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; [1] "POINT (-66.37340 -38.27716)"</div><div class='input'><span class='fu'>wkt_point</span>(<span class='kw'>fmt</span> <span class='kw'>=</span> <span class='fl'>6</span>)</div><div class='output co'>#&gt; [1] "POINT (144.854676 48.538812)"</div><div class='input'><span class='fu'>wkt_point</span>(<span class='kw'>fmt</span> <span class='kw'>=</span> <span class='fl'>7</span>)</div><div class='output co'>#&gt; [1] "POINT (23.6005897 48.1348647)"</div><div class='input'>
+<span class='fu'>wkt_point</span>(<span class='kw'>bbox</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>50</span>, <span class='fl'>50</span>, <span class='fl'>60</span>, <span class='fl'>60</span>))</div><div class='output co'>#&gt; [1] "POINT (56.2759762 50.6760518)"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -176,7 +201,7 @@ positions; numeric vector of the form
 
       <footer>
       <div class="copyright">
-  <p>Developed by Scott Chamberlain, Noam Ross.</p>
+  <p>Developed by Scott Chamberlain, Noam Ross, Samuel Bosch.</p>
 </div>
 
 <div class="pkgdown">

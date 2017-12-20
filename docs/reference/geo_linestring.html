@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Random GeoJSON polygon — geo_polygon • randgeo</title>
+<title>Random GeoJSON linestring — geo_linestring • randgeo</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -95,15 +95,15 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Random GeoJSON polygon</h1>
+    <h1>Random GeoJSON linestring</h1>
     </div>
 
     
-    <p>Random GeoJSON polygon</p>
+    <p>Random GeoJSON linestring</p>
     
 
-    <pre class="usage"><span class='fu'>geo_polygon</span>(<span class='kw'>count</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>num_vertices</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>max_radial_length</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-  <span class='kw'>bbox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>geo_linestring</span>(<span class='kw'>count</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>num_vertices</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>max_length</span> <span class='kw'>=</span> <span class='fl'>0.001</span>,
+  <span class='kw'>max_rotation</span> <span class='kw'>=</span> <span class='no'>pi</span>/<span class='fl'>8</span>, <span class='kw'>bbox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -114,31 +114,36 @@
     </tr>
     <tr>
       <th>num_vertices</th>
-      <td><p>(integer/numeric) how many coordinates each
-polygon will contain. Default: 10</p></td>
+      <td><p>(integer/numeric) how many coordinates each polygon will
+contain. Default: 10</p></td>
     </tr>
     <tr>
-      <th>max_radial_length</th>
-      <td><p>(integer/numeric) maximum distance that a vertex
-can reach out of the center of the polygon. Units are in degrees latitude
-(Approximately 69 miles or 111 km). Default: 10</p></td>
+      <th>max_length</th>
+      <td><p>(integer/numeric) maximum distance that a vertex can be
+from its predecessor. Units are in degrees latitude (Approximately 69 miles
+or 111 km). Default: 0.001 (approximately 121 yards or 111 meters)</p></td>
+    </tr>
+    <tr>
+      <th>max_rotation</th>
+      <td><p>(integer/numeric) the maximum number of radians that a
+line segment can turn from the previous segment. Default: pi / 8</p></td>
     </tr>
     <tr>
       <th>bbox</th>
-      <td><p>(integer/numeric) lat/long bounding box for the centers of the
-polygons, numeric vector of the form
-<code>west (long), south (lat), east (long), north (lat)</code>. optional</p></td>
+      <td><p>(integer/numeric) lat/long bounding box for the starting point of
+the line, numeric vector of the form <code>west (long), south (lat), east
+  (long), north (lat)</code>. optional</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>GeoJSON; a list with one ore more Polygons in a FeatureCollection,
+    <p>GeoJSON; a list with one ore more Linestrings in a FeatureCollection,
 with class <code>geo_list</code> - simple <code>unclass()</code> to remove the class</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>geo_polygon</span>()</div><div class='output co'>#&gt; $type
+    <pre class="examples"><div class='input'><span class='fu'>geo_linestring</span>()</div><div class='output co'>#&gt; $type
 #&gt; [1] "FeatureCollection"
 #&gt; 
 #&gt; $features
@@ -148,42 +153,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[1]]$geometry
 #&gt; $features[[1]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates
 #&gt; $features[[1]]$geometry$coordinates[[1]]
 #&gt; $features[[1]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] 115.96093  64.21108
+#&gt; [1] -150.9300  -41.9642
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] 120.75368  65.91909
+#&gt; [1] -150.9300  -41.9642
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] 118.53046  62.61941
+#&gt; [1] -150.92979  -41.96468
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] 121.87439  62.71219
+#&gt; [1] -150.92977  -41.96542
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] 116.29626  60.44967
+#&gt; [1] -150.93004  -41.96627
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] 113.58942  58.84278
+#&gt; [1] -150.9300  -41.9663
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] 103.77614  51.04007
+#&gt; [1] -150.9301  -41.9667
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] 110.02834  58.47168
+#&gt; [1] -150.92991  -41.96709
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] 98.76928 62.38827
+#&gt; [1] -150.92982  -41.96747
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] 101.17285  66.02952
-#&gt; 
-#&gt; $features[[1]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] 115.96093  64.21108
+#&gt; [1] -150.93000  -41.96773
 #&gt; 
 #&gt; 
 #&gt; 
@@ -194,7 +196,7 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; 
 #&gt; attr(,"class")
-#&gt; [1] "geo_list"</div><div class='input'><span class='fu'>geo_polygon</span>(<span class='fl'>10</span>)</div><div class='output co'>#&gt; $type
+#&gt; [1] "geo_list"</div><div class='input'><span class='fu'>geo_linestring</span>(<span class='fl'>10</span>)</div><div class='output co'>#&gt; $type
 #&gt; [1] "FeatureCollection"
 #&gt; 
 #&gt; $features
@@ -204,42 +206,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[1]]$geometry
 #&gt; $features[[1]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates
 #&gt; $features[[1]]$geometry$coordinates[[1]]
 #&gt; $features[[1]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] 159.1415  41.0821
+#&gt; [1]  64.21695 -28.07580
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] 159.60906  35.55903
+#&gt; [1]  64.21779 -28.07582
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] 163.47179  37.04195
+#&gt; [1]  64.21724 -28.07602
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] 164.69595  29.03442
+#&gt; [1]  64.21792 -28.07636
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] 157.29189  33.28822
+#&gt; [1]  64.21775 -28.07652
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] 154.34700  34.01361
+#&gt; [1]  64.21833 -28.07689
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] 153.93747  34.52634
+#&gt; [1]  64.21793 -28.07713
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] 157.26336  34.58836
+#&gt; [1]  64.21875 -28.07775
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] 147.16215  36.22283
+#&gt; [1]  64.21859 -28.07792
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] 156.6049  38.6440
-#&gt; 
-#&gt; $features[[1]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] 159.1415  41.0821
+#&gt; [1]  64.21890 -28.07833
 #&gt; 
 #&gt; 
 #&gt; 
@@ -254,42 +253,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[2]]$geometry
 #&gt; $features[[2]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates
 #&gt; $features[[2]]$geometry$coordinates[[1]]
 #&gt; $features[[2]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] -162.85010  -28.98764
+#&gt; [1]  51.00457 -18.69732
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] -158.68016  -38.90592
+#&gt; [1]  51.00516 -18.69679
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] -166.55490  -37.72285
+#&gt; [1]  51.00612 -18.69646
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] -169.11061  -36.56811
+#&gt; [1]  51.00656 -18.69627
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] -174.11420  -39.77686
+#&gt; [1]  51.00672 -18.69617
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] -177.80830  -39.67568
+#&gt; [1]  51.00717 -18.69593
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] -170.07573  -35.02571
+#&gt; [1]  51.00738 -18.69588
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] -178.35182  -36.94371
+#&gt; [1]  51.00745 -18.69587
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] -172.2119  -35.4245
+#&gt; [1]  51.0083 -18.6957
 #&gt; 
 #&gt; $features[[2]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] -169.75117  -34.74007
-#&gt; 
-#&gt; $features[[2]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] -162.85010  -28.98764
+#&gt; [1]  51.00886 -18.69549
 #&gt; 
 #&gt; 
 #&gt; 
@@ -304,42 +300,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[3]]$geometry
 #&gt; $features[[3]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates
 #&gt; $features[[3]]$geometry$coordinates[[1]]
 #&gt; $features[[3]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] -117.6866893    0.8088148
+#&gt; [1] -59.14113 -11.10021
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] -117.068408   -2.893618
+#&gt; [1] -59.14058 -11.10020
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] -114.693381   -1.808236
+#&gt; [1] -59.14030 -11.10017
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] -115.812575   -4.143181
+#&gt; [1] -59.14005 -11.09989
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] -115.12270  -13.32462
+#&gt; [1] -59.14018 -11.09944
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] -121.57430  -11.54943
+#&gt; [1] -59.14018 -11.09942
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] -125.92584  -14.39116
+#&gt; [1] -59.14024 -11.09887
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] -127.679014   -5.341101
+#&gt; [1] -59.14014 -11.09850
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] -121.326663   -4.596582
+#&gt; [1] -59.14011 -11.09790
 #&gt; 
 #&gt; $features[[3]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] -120.691220   -6.577565
-#&gt; 
-#&gt; $features[[3]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] -117.6866893    0.8088148
+#&gt; [1] -59.14016 -11.09761
 #&gt; 
 #&gt; 
 #&gt; 
@@ -354,42 +347,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[4]]$geometry
 #&gt; $features[[4]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates
 #&gt; $features[[4]]$geometry$coordinates[[1]]
 #&gt; $features[[4]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] -163.09353   51.98867
+#&gt; [1]  -7.172937 -57.141291
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] -149.95869   44.58485
+#&gt; [1]  -7.172008 -57.141735
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] -155.6320   38.3543
+#&gt; [1]  -7.170198 -57.141909
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] -164.14081   33.81028
+#&gt; [1]  -7.169255 -57.141826
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] -166.0154   33.1275
+#&gt; [1]  -7.167949 -57.141945
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] -163.47784   42.83862
+#&gt; [1]  -7.166946 -57.141893
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] -167.9918   45.2449
+#&gt; [1]  -7.166895 -57.141899
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] -169.99309   46.82229
+#&gt; [1]  -7.165419 -57.141986
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] -173.9668   49.1118
+#&gt; [1]  -7.164712 -57.142112
 #&gt; 
 #&gt; $features[[4]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] -164.61972   45.57618
-#&gt; 
-#&gt; $features[[4]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] -163.09353   51.98867
+#&gt; [1]  -7.16394 -57.14211
 #&gt; 
 #&gt; 
 #&gt; 
@@ -404,42 +394,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[5]]$geometry
 #&gt; $features[[5]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates
 #&gt; $features[[5]]$geometry$coordinates[[1]]
 #&gt; $features[[5]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] -75.72248 -40.25297
+#&gt; [1] 60.793469 -0.876692
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] -78.66045 -49.61780
+#&gt; [1] 60.7927585 -0.8771315
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] -70.56647 -48.24423
+#&gt; [1] 60.7920391 -0.8776283
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] -75.72745 -50.69330
+#&gt; [1] 60.7917234 -0.8784586
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] -71.40086 -54.27237
+#&gt; [1] 60.7914294 -0.8788633
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] -70.78539 -55.06920
+#&gt; [1] 60.791183 -0.879598
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] -75.80780 -58.18693
+#&gt; [1] 60.7910096 -0.8802078
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] -84.61625 -49.96472
+#&gt; [1] 60.7907574 -0.8807155
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] -92.36297 -48.85947
+#&gt; [1] 60.7906542 -0.8816285
 #&gt; 
 #&gt; $features[[5]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] -84.62542 -42.25004
-#&gt; 
-#&gt; $features[[5]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] -75.72248 -40.25297
+#&gt; [1] 60.7905666 -0.8818611
 #&gt; 
 #&gt; 
 #&gt; 
@@ -454,42 +441,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[6]]$geometry
 #&gt; $features[[6]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates
 #&gt; $features[[6]]$geometry$coordinates[[1]]
 #&gt; $features[[6]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] -174.06129   20.00849
+#&gt; [1] -34.96276 -32.63330
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] -171.38416   22.05271
+#&gt; [1] -34.96267 -32.63316
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] -176.40441   16.78065
+#&gt; [1] -34.96231 -32.63236
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] -174.53143   13.28003
+#&gt; [1] -34.96201 -32.63187
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] -176.91548   13.22745
+#&gt; [1] -34.96179 -32.63121
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] -177.09936   10.84794
+#&gt; [1] -34.96179 -32.63116
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] -177.40767   15.62236
+#&gt; [1] -34.96177 -32.63109
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] -178.27572   15.57863
+#&gt; [1] -34.96141 -32.63056
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] 172.37843  17.69339
+#&gt; [1] -34.96144 -32.62965
 #&gt; 
 #&gt; $features[[6]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] 179.00446  24.61757
-#&gt; 
-#&gt; $features[[6]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] -174.06129   20.00849
+#&gt; [1] -34.9617 -32.6291
 #&gt; 
 #&gt; 
 #&gt; 
@@ -504,42 +488,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[7]]$geometry
 #&gt; $features[[7]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates
 #&gt; $features[[7]]$geometry$coordinates[[1]]
 #&gt; $features[[7]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] 15.78893 34.59419
+#&gt; [1] -94.68808 -54.35020
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] 20.57688 33.77514
+#&gt; [1] -94.68839 -54.35008
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] 17.91426 26.90898
+#&gt; [1] -94.68805 -54.35000
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] 13.42341 21.29710
+#&gt; [1] -94.68858 -54.34988
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] 10.93275 28.17205
+#&gt; [1] -94.68817 -54.34980
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates[[1]][[6]]
-#&gt; [1]  9.832739 20.085385
+#&gt; [1] -94.68968 -54.34954
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates[[1]][[7]]
-#&gt; [1]  8.077132 20.993796
+#&gt; [1] -94.68828 -54.34961
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates[[1]][[8]]
-#&gt; [1]  6.650488 22.654813
+#&gt; [1] -94.68926 -54.34948
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates[[1]][[9]]
-#&gt; [1]  7.458519 26.682319
+#&gt; [1] -94.68755 -54.34947
 #&gt; 
 #&gt; $features[[7]]$geometry$coordinates[[1]][[10]]
-#&gt; [1]  6.844309 32.893940
-#&gt; 
-#&gt; $features[[7]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] 15.78893 34.59419
+#&gt; [1] -94.68791 -54.34943
 #&gt; 
 #&gt; 
 #&gt; 
@@ -554,42 +535,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[8]]$geometry
 #&gt; $features[[8]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates
 #&gt; $features[[8]]$geometry$coordinates[[1]]
 #&gt; $features[[8]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] 49.31968 31.70808
+#&gt; [1] -74.96725 -26.32865
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] 51.67309 29.76739
+#&gt; [1] -74.96726 -26.32865
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] 56.56034 27.94079
+#&gt; [1] -74.96738 -26.32823
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] 48.08573 28.73189
+#&gt; [1] -74.96732 -26.32756
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] 48.37730 28.23347
+#&gt; [1] -74.96733 -26.32721
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] 47.44323 26.15175
+#&gt; [1] -74.96721 -26.32656
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] 46.21164 23.02375
+#&gt; [1] -74.96745 -26.32573
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] 45.32643 26.90101
+#&gt; [1] -74.96785 -26.32496
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] 46.88411 28.74668
+#&gt; [1] -74.96811 -26.32453
 #&gt; 
 #&gt; $features[[8]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] 39.29261 29.54388
-#&gt; 
-#&gt; $features[[8]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] 49.31968 31.70808
+#&gt; [1] -74.96842 -26.32390
 #&gt; 
 #&gt; 
 #&gt; 
@@ -604,42 +582,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[9]]$geometry
 #&gt; $features[[9]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates
 #&gt; $features[[9]]$geometry$coordinates[[1]]
 #&gt; $features[[9]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] 94.99317 34.94721
+#&gt; [1] -121.09565  -64.91092
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] 95.80409 20.53250
+#&gt; [1] -121.09368  -64.91121
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] 90.18590 26.81115
+#&gt; [1] -121.09391  -64.91122
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] 90.05382 23.45053
+#&gt; [1] -121.09221  -64.91149
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] 88.86772 25.78736
+#&gt; [1] -121.09437  -64.91188
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] 82.20094 21.47633
+#&gt; [1] -121.09220  -64.91211
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] 80.91600 31.54879
+#&gt; [1] -121.09227  -64.91212
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] 88.63857 28.70608
+#&gt; [1] -121.09027  -64.91221
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] 83.29856 33.62906
+#&gt; [1] -121.09074  -64.91228
 #&gt; 
 #&gt; $features[[9]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] 90.0116 27.3759
-#&gt; 
-#&gt; $features[[9]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] 94.99317 34.94721
+#&gt; [1] -121.0885  -64.9122
 #&gt; 
 #&gt; 
 #&gt; 
@@ -654,42 +629,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[10]]$geometry
 #&gt; $features[[10]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates
 #&gt; $features[[10]]$geometry$coordinates[[1]]
 #&gt; $features[[10]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] 64.81519 16.67556
+#&gt; [1] -91.82592 -34.21121
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] 63.78095 12.95124
+#&gt; [1] -91.82562 -34.21136
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] 63.47427 12.16872
+#&gt; [1] -91.82633 -34.21142
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] 62.08952 12.16787
+#&gt; [1] -91.82536 -34.21166
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] 64.26561 11.02031
+#&gt; [1] -91.82586 -34.21168
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] 64.955481  2.980156
+#&gt; [1] -91.82577 -34.21166
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] 60.61845 11.38733
+#&gt; [1] -91.82646 -34.21146
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] 55.458332  8.138475
+#&gt; [1] -91.82606 -34.21141
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] 59.95903 14.04069
+#&gt; [1] -91.82681 -34.21105
 #&gt; 
 #&gt; $features[[10]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] 60.79259 13.46167
-#&gt; 
-#&gt; $features[[10]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] 64.81519 16.67556
+#&gt; [1] -91.82564 -34.21087
 #&gt; 
 #&gt; 
 #&gt; 
@@ -700,7 +672,7 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; 
 #&gt; attr(,"class")
-#&gt; [1] "geo_list"</div><div class='input'><span class='fu'>geo_polygon</span>(<span class='kw'>bbox</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>50</span>, <span class='fl'>50</span>, <span class='fl'>60</span>, <span class='fl'>60</span>))</div><div class='output co'>#&gt; $type
+#&gt; [1] "geo_list"</div><div class='input'><span class='fu'>geo_linestring</span>(<span class='kw'>bbox</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>50</span>, <span class='fl'>50</span>, <span class='fl'>60</span>, <span class='fl'>60</span>))</div><div class='output co'>#&gt; $type
 #&gt; [1] "FeatureCollection"
 #&gt; 
 #&gt; $features
@@ -710,42 +682,39 @@ with class <code>geo_list</code> - simple <code>unclass()</code> to remove the c
 #&gt; 
 #&gt; $features[[1]]$geometry
 #&gt; $features[[1]]$geometry$type
-#&gt; [1] "Polygon"
+#&gt; [1] "LineString"
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates
 #&gt; $features[[1]]$geometry$coordinates[[1]]
 #&gt; $features[[1]]$geometry$coordinates[[1]][[1]]
-#&gt; [1] 60.38588 55.79319
+#&gt; [1] 52.18563 56.35484
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[2]]
-#&gt; [1] 65.04360 58.09262
+#&gt; [1] 52.18660 56.35453
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[3]]
-#&gt; [1] 60.31371 50.61344
+#&gt; [1] 52.18728 56.35438
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[4]]
-#&gt; [1] 60.06337 48.24432
+#&gt; [1] 52.18809 56.35413
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[5]]
-#&gt; [1] 57.73071 45.38884
+#&gt; [1] 52.18811 56.35411
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[6]]
-#&gt; [1] 57.08087 48.04899
+#&gt; [1] 52.18868 56.35392
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[7]]
-#&gt; [1] 55.01187 47.17436
+#&gt; [1] 52.18964 56.35349
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[8]]
-#&gt; [1] 52.57938 49.44271
+#&gt; [1] 52.1908 56.3531
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[9]]
-#&gt; [1] 56.43616 50.12316
+#&gt; [1] 52.19120 56.35301
 #&gt; 
 #&gt; $features[[1]]$geometry$coordinates[[1]][[10]]
-#&gt; [1] 59.05194 51.00783
-#&gt; 
-#&gt; $features[[1]]$geometry$coordinates[[1]][[11]]
-#&gt; [1] 60.38588 55.79319
+#&gt; [1] 52.19194 56.35292
 #&gt; 
 #&gt; 
 #&gt; 
