@@ -1,4 +1,4 @@
-#' Random GeoJSON polygon
+#' Random WKT polygon
 #'
 #' @export
 #' @param count (integer/numeric) number of Polygons. Default: 1

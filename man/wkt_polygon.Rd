@@ -2,7 +2,7 @@
 % Please edit documentation in R/wkt_polygon.R
 \name{wkt_polygon}
 \alias{wkt_polygon}
-\title{Random GeoJSON polygon}
+\title{Random WKT polygon}
 \usage{
 wkt_polygon(count = 1, num_vertices = 10, max_radial_length = 10,
   bbox = NULL, fmt = 7)
@@ -27,7 +27,7 @@ polygons, numeric vector of the form
 WKT; a character vector with one or more POLYGON strings
 }
 \description{
-Random GeoJSON polygon
+Random WKT polygon
 }
 \examples{
 wkt_polygon()
