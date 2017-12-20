@@ -126,6 +126,12 @@ Random polygon
 wkt_polygon()
 ```
 
+## Contributors
+
+* Scott Chamberlain
+* Noam Ross
+* Samuel Bosch
+
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/randgeo/issues).

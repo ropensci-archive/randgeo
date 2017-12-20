@@ -1,3 +1,11 @@
+randgeo 0.2.3.9100
+=============
+
+### NEW FEATURES
+
+* Gains `geo_linestring` and `wkt_linestring` ([#13](https://github.com/ropensci/randgeo/pull/13)) thanks to @samuelbosch
+
+
 randgeo 0.2.0
 =============
 
