@@ -3,11 +3,10 @@
 man-roxygen
 appveyor.yml
 Makefile
-^CONDUCT\.md$
+^CODE_OF_CONDUCT\.md$
 ^\.travis\.yml$
 ^cran-comments\.md$
 ^README\.Rmd$
 inst/img/
 docs
-
 ^codemeta\.json$
