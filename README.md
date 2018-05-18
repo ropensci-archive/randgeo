@@ -240,7 +240,7 @@ Visualize your shapes with **lawn**.
 lawn::view(jsonlite::toJSON(geo_polygon(count = 4), auto_unbox = TRUE))
 ```
 
-![map](tools/plot.png)
+![map](https://github.com/ropensci/randgeo/raw/master/tools/plot.png)
 
 
 ## Generate random WKT
