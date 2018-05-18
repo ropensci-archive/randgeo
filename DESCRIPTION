@@ -5,7 +5,7 @@ Description: Generate random positions (latitude/longitude),
     polygons. 
 Version: 0.2.3.9100
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "myrmecocystus@gmail.com"),
+    email = "myrmecocystus@gmail.com", comment = c(ORCID = "0000-0003-1444-9135")),
     person("Noam", "Ross", role = "aut"),
     person("Samuel", "Bosch", role = "aut")
     )
