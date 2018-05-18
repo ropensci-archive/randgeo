@@ -1,6 +1,6 @@
 ---
 title: "Introduction to the randgeo package"
-author: "Scott Chamberlain and Noam Ross"
+author: "Scott Chamberlain, Noam Ross, and Samuel Bosch"
 date: "`r Sys.Date()`"
 output: 
   html_document:
