@@ -26,7 +26,7 @@ the globe, and random shapes are sized according to a maximum great-circle
 distance from the center of the shape. 
 
 **randgeo** was adapted from <https://github.com/tmcw/geojson-random> to have a pure R
-implementation without any dependencies as well as appropriate geometry. Data generated
+implementation __without any dependencies__ as well as appropriate geometry. Data generated
 by **randgeo** may be processed or displayed of with packages such as
 [**sf**](https://cran.r-project.org/package=sf),
 [**wicket**](https://cran.r-project.org/package=wicket),
