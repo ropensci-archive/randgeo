@@ -10,3 +10,4 @@ Makefile
 inst/img/
 docs
 ^codemeta\.json$
+.github
