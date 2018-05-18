@@ -8,14 +8,17 @@
 <title>Introduction to the randgeo package • randgeo</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to the randgeo package">
+<meta property="og:description" content="">
+<meta name="twitter:card" content="summary">
+<!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -24,8 +27,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">randgeo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">randgeo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.3.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
@@ -50,7 +57,7 @@
   </ul>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -70,99 +77,121 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Introduction to the randgeo package</h1>
-                        <h4 class="author">Scott Chamberlain and Noam Ross</h4>
+                        <h4 class="author">Scott Chamberlain, Noam Ross, and Samuel Bosch</h4>
             
-            <h4 class="date">2017-12-20</h4>
-          </div>
+            <h4 class="date">2018-05-18</h4>
+      
+      <small class="dont-index">Source: <a href="https://github.com/ropensci/randgeo/blob/master/vignettes/randgeo_vignette.Rmd"><code>vignettes/randgeo_vignette.Rmd</code></a></small>
+      <div class="hidden name"><code>randgeo_vignette.Rmd</code></div>
+
+    </div>
 
     
     
-<div class="contents">
 <p><code>randgeo</code> is a no dependency R package for generating random lat/long positions, or random WKT or GeoJSON points or polygons.</p>
 <p>The benefit of no dependencies is that it can easily be used in other packages without any pain. e.g., you may want to show examples in your package but you don’t want a heavy dependency just for examples.</p>
 <p>This package is adapted from Javascript’s <a href="https://github.com/tmcw/geojson-random" class="uri">https://github.com/tmcw/geojson-random</a> but with modifications.</p>
-<section id="install" class="level2"><h2>Install</h2>
+<div id="install" class="section level2">
+<h2 class="hasAnchor">
+<a href="#install" class="anchor"></a>Install</h2>
 <p>Stable <code>randgeo</code> version from CRAN</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"randgeo"</span>)</a></code></pre></div>
 <p>Or, the development version from Github</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"ropensci/randgeo"</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"randgeo"</span>)</a></code></pre></div>
-</section><section id="random-position" class="level2"><h2>random position</h2>
+</div>
+<div id="random-position" class="section level2">
+<h2 class="hasAnchor">
+<a href="#random-position" class="anchor"></a>random position</h2>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/rg_position.html">rg_position</a></span>()</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; [1]  1.62480 60.00411</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; [1] -91.67649  15.46011</span></a></code></pre></div>
 <p>Many positions</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/rg_position.html">rg_position</a></span>(<span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [1] 69.52118 18.09576</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [1] -118.83755  -11.59579</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; [[2]]</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] -138.91189   15.33685</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] 163.42678 -21.30695</span></a>
 <a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; [[3]]</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; [1] -127.57032   10.95195</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; [1] 104.08393 -80.84643</span></a>
 <a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; [[4]]</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; [1] -81.257952  -7.451783</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; [1] -45.46406  40.08128</span></a>
 <a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; [[5]]</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; [1]   1.535336 -34.798912</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; [1]  7.308097 -9.027415</span></a>
 <a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; [[6]]</span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; [1]  72.88088 -57.58762</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; [1] -36.60053 -18.25741</span></a>
 <a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt; [[7]]</span></a>
-<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; [1] -113.14484  -61.09772</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; [1] -106.76103  -36.58675</span></a>
 <a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt; [[8]]</span></a>
-<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt; [1] -105.330044   -2.671009</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt; [1] 149.66602  46.11848</span></a>
 <a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt; [[9]]</span></a>
-<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#&gt; [1]  55.68210 -16.70816</span></a>
+<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#&gt; [1] 133.75164  35.22518</span></a>
 <a class="sourceLine" id="cb5-28" data-line-number="28"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb5-29" data-line-number="29"><span class="co">#&gt; [[10]]</span></a>
-<a class="sourceLine" id="cb5-30" data-line-number="30"><span class="co">#&gt; [1] -76.91762  26.96268</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-30" data-line-number="30"><span class="co">#&gt; [1] -137.26169   49.45633</span></a></code></pre></div>
 <p>Random position within a bounding box</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/rg_position.html">rg_position</a></span>(<span class="dt">bbox =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">60</span>))</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; [1] 57.55703 52.64125</span></a></code></pre></div>
-</section><section id="well-known-text" class="level2"><h2>Well-known text</h2>
-<section id="random-points" class="level3"><h3>random points</h3>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; [1] 52.32923 57.22208</span></a></code></pre></div>
+</div>
+<div id="well-known-text" class="section level2">
+<h2 class="hasAnchor">
+<a href="#well-known-text" class="anchor"></a>Well-known text</h2>
+<div id="random-points" class="section level3">
+<h3 class="hasAnchor">
+<a href="#random-points" class="anchor"></a>random points</h3>
 <p>A single point</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../reference/wkt_point.html">wkt_point</a></span>()</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; [1] "POINT (151.1042364 -32.9068740)"</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; [1] "POINT (-123.3908044 3.0300935)"</span></a></code></pre></div>
 <p>Many points</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/wkt_point.html">wkt_point</a></span>(<span class="dt">count =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt;  [1] "POINT (169.2432376 -57.0671880)" "POINT (-164.3014750 1.4494928)" </span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;  [3] "POINT (-178.0142114 11.8671662)" "POINT (-130.9852347 35.6738427)"</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;  [5] "POINT (166.2986307 -43.1184571)" "POINT (16.3778439 31.0434018)"  </span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  [7] "POINT (-174.3629795 19.8028089)" "POINT (163.4570332 -37.5704753)"</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  [9] "POINT (76.2270699 -48.6542094)"  "POINT (-36.0858195 -15.7634321)"</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt;  [1] "POINT (145.1483063 49.5659979)"  "POINT (-62.0664730 -19.0378540)"</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;  [3] "POINT (173.2884376 19.5288828)"  "POINT (-137.5398865 37.4172704)"</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;  [5] "POINT (-8.1417756 7.7153674)"    "POINT (-133.7346676 23.3315788)"</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  [7] "POINT (-19.6522429 18.1214689)"  "POINT (-125.9329798 19.5580336)"</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  [9] "POINT (-112.7918200 4.7460979)"  "POINT (-58.7670518 26.8174466)"</span></a></code></pre></div>
 <p>Within a bounding box</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../reference/wkt_point.html">wkt_point</a></span>(<span class="dt">bbox =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">60</span>))</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">#&gt; [1] "POINT (57.7641545 56.9873638)"</span></a></code></pre></div>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">#&gt; [1] "POINT (56.1408327 51.3218040)"</span></a></code></pre></div>
 <p>The <code>fmt</code> parameter controls how many decimal points</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/wkt_point.html">wkt_point</a></span>()</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co">#&gt; [1] "POINT (124.0156988 4.2311059)"</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co">#&gt; [1] "POINT (-100.5851586 6.2538484)"</span></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw"><a href="../reference/wkt_point.html">wkt_point</a></span>(<span class="dt">fmt =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#&gt; [1] "POINT (118.4245915990 9.4774573395)"</span></a></code></pre></div>
-</section><section id="random-polygons" class="level3"><h3>random polygons</h3>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#&gt; [1] "POINT (148.1126737967 -35.7140377929)"</span></a></code></pre></div>
+</div>
+<div id="random-polygons" class="section level3">
+<h3 class="hasAnchor">
+<a href="#random-polygons" class="anchor"></a>random polygons</h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="../reference/wkt_polygon.html">wkt_polygon</a></span>()</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#&gt; [1] "POLYGON ((88.4398582 75.2149248, 90.9579236 76.5324065, 110.3268391 71.9818066, 105.4367087 71.3951605, 92.2194743 68.8615173, 98.9282374 66.1977090, 92.8995804 66.0223251, 76.8239632 70.3202085, 64.5087335 72.7927290, 78.9366210 72.7369857, 88.4398582 75.2149248))"</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#&gt; [1] "POLYGON ((50.6591772 -74.4500547, 56.0499331 -77.9159884, 60.0580330 -82.4853073, 110.0859367 -82.0035832, 77.8236493 -84.3517599, 39.0519940 -87.9694664, 25.3017176 -85.9229768, -10.0485932 -84.6075497, 23.9403248 -82.2412616, 32.1647501 -81.6210722, 50.6591772 -74.4500547))"</span></a></code></pre></div>
 <p>Adjust number of vertices (Default: 10)</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="../reference/wkt_polygon.html">wkt_polygon</a></span>(<span class="dt">num_vertices =</span> <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co">#&gt; [1] "POLYGON ((-160.1897592 -32.1634848, -157.9242768 -40.7387847, -172.9207712 -38.3305011, -178.2738786 -31.1027519, -160.1897592 -32.1634848))"</span></a></code></pre></div>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co">#&gt; [1] "POLYGON ((-83.3262193 61.8528229, -82.8914138 60.5268271, -83.7173724 51.2001338, -93.3390830 60.3616744, -83.3262193 61.8528229))"</span></a></code></pre></div>
 <p>Adjust maximum number of decimal degrees latitude or longitude that a vertex can reach out of the center of the Polygon (Default: 10)</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="../reference/wkt_polygon.html">wkt_polygon</a></span>(<span class="dt">max_radial_length =</span> <span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">#&gt; [1] "POLYGON ((10.1447192 0.2786328, 10.0453215 -2.0285752, 10.6207687 -2.9113113, 9.7482682 -3.3039414, 9.4935384 -4.2513634, 8.8651990 -2.8655761, 4.6626767 -4.1729403, 8.7765594 -1.6116019, 7.8503711 0.8562378, 8.9270217 -1.1279371, 10.1447192 0.2786328))"</span></a></code></pre></div>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">#&gt; [1] "POLYGON ((-89.2312813 -11.7037300, -88.4905121 -10.7161210, -87.5048223 -11.3025981, -88.5465849 -15.9252172, -87.7955549 -18.3344001, -89.7387691 -13.8441655, -92.4534885 -11.5757138, -90.2138955 -13.1958077, -91.9242212 -10.7835503, -89.8451655 -12.9235363, -89.2312813 -11.7037300))"</span></a></code></pre></div>
 <p>Within a bounding box</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="../reference/wkt_polygon.html">wkt_polygon</a></span>(<span class="dt">bbox =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">130</span>, <span class="dv">50</span>, <span class="dv">-120</span>, <span class="dv">60</span>))</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#&gt; [1] "POLYGON ((-116.8826799 58.3251623, -114.8050746 57.5672375, -114.7983560 56.9167701, -117.2924408 55.3049423, -118.4965283 51.7771523, -123.6918224 52.8261430, -130.7755285 51.3612180, -132.1746473 54.8302429, -127.4605757 55.2330498, -123.7948505 58.6611072, -116.8826799 58.3251623))"</span></a></code></pre></div>
-</section></section><section id="geojson" class="level2"><h2>GeoJSON</h2>
-<section id="random-points-1" class="level3"><h3>random points</h3>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#&gt; [1] "POLYGON ((-128.9313855 62.8226622, -124.0266728 60.1397744, -121.5731001 58.7186177, -128.7371220 53.3825482, -117.7631206 52.8861217, -123.0398614 53.0294344, -131.4261643 50.6097606, -136.9057940 49.4324975, -139.6947967 51.5521597, -133.7705515 55.5439624, -128.9313855 62.8226622))"</span></a></code></pre></div>
+</div>
+</div>
+<div id="geojson" class="section level2">
+<h2 class="hasAnchor">
+<a href="#geojson" class="anchor"></a>GeoJSON</h2>
+<div id="random-points-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#random-points-1" class="anchor"></a>random points</h3>
 <p>A single point</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="../reference/geo_point.html">geo_point</a></span>()</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co">#&gt; $type</span></a>
@@ -178,7 +207,7 @@
 <a class="sourceLine" id="cb15-12" data-line-number="12"><span class="co">#&gt; [1] "Point"</span></a>
 <a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb15-14" data-line-number="14"><span class="co">#&gt; $features[[1]]$geometry$coordinates</span></a>
-<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co">#&gt; [1] -84.0430  27.5576</span></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co">#&gt; [1] 178.308939   2.136669</span></a>
 <a class="sourceLine" id="cb15-16" data-line-number="16"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb15-17" data-line-number="17"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb15-18" data-line-number="18"><span class="co">#&gt; $features[[1]]$properties</span></a>
@@ -216,7 +245,7 @@
 <a class="sourceLine" id="cb17-12" data-line-number="12"><span class="co">#&gt; [1] "Point"</span></a>
 <a class="sourceLine" id="cb17-13" data-line-number="13"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb17-14" data-line-number="14"><span class="co">#&gt; $features[[1]]$geometry$coordinates</span></a>
-<a class="sourceLine" id="cb17-15" data-line-number="15"><span class="co">#&gt; [1] 58.01894 59.42157</span></a>
+<a class="sourceLine" id="cb17-15" data-line-number="15"><span class="co">#&gt; [1] 57.82125 54.91941</span></a>
 <a class="sourceLine" id="cb17-16" data-line-number="16"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb17-17" data-line-number="17"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb17-18" data-line-number="18"><span class="co">#&gt; $features[[1]]$properties</span></a>
@@ -226,7 +255,10 @@
 <a class="sourceLine" id="cb17-22" data-line-number="22"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb17-23" data-line-number="23"><span class="co">#&gt; attr(,"class")</span></a>
 <a class="sourceLine" id="cb17-24" data-line-number="24"><span class="co">#&gt; [1] "geo_list"</span></a></code></pre></div>
-</section><section id="random-polygons-1" class="level3"><h3>random polygons</h3>
+</div>
+<div id="random-polygons-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#random-polygons-1" class="anchor"></a>random polygons</h3>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw"><a href="../reference/geo_polygon.html">geo_polygon</a></span>()</a>
 <a class="sourceLine" id="cb18-2" data-line-number="2"><span class="co">#&gt; $type</span></a>
 <a class="sourceLine" id="cb18-3" data-line-number="3"><span class="co">#&gt; [1] "FeatureCollection"</span></a>
@@ -243,37 +275,37 @@
 <a class="sourceLine" id="cb18-14" data-line-number="14"><span class="co">#&gt; $features[[1]]$geometry$coordinates</span></a>
 <a class="sourceLine" id="cb18-15" data-line-number="15"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]]</span></a>
 <a class="sourceLine" id="cb18-16" data-line-number="16"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[1]]</span></a>
-<a class="sourceLine" id="cb18-17" data-line-number="17"><span class="co">#&gt; [1] -44.84972  66.39301</span></a>
+<a class="sourceLine" id="cb18-17" data-line-number="17"><span class="co">#&gt; [1] -170.36486  -30.22639</span></a>
 <a class="sourceLine" id="cb18-18" data-line-number="18"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-19" data-line-number="19"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[2]]</span></a>
-<a class="sourceLine" id="cb18-20" data-line-number="20"><span class="co">#&gt; [1] -41.58723  63.99559</span></a>
+<a class="sourceLine" id="cb18-20" data-line-number="20"><span class="co">#&gt; [1] -167.86619  -31.46597</span></a>
 <a class="sourceLine" id="cb18-21" data-line-number="21"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-22" data-line-number="22"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[3]]</span></a>
-<a class="sourceLine" id="cb18-23" data-line-number="23"><span class="co">#&gt; [1] -43.17853  57.87244</span></a>
+<a class="sourceLine" id="cb18-23" data-line-number="23"><span class="co">#&gt; [1] -169.24533  -34.55356</span></a>
 <a class="sourceLine" id="cb18-24" data-line-number="24"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-25" data-line-number="25"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[4]]</span></a>
-<a class="sourceLine" id="cb18-26" data-line-number="26"><span class="co">#&gt; [1] -45.94459  52.74010</span></a>
+<a class="sourceLine" id="cb18-26" data-line-number="26"><span class="co">#&gt; [1] -168.51073  -36.05501</span></a>
 <a class="sourceLine" id="cb18-27" data-line-number="27"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-28" data-line-number="28"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[5]]</span></a>
-<a class="sourceLine" id="cb18-29" data-line-number="29"><span class="co">#&gt; [1] -55.72258  56.48352</span></a>
+<a class="sourceLine" id="cb18-29" data-line-number="29"><span class="co">#&gt; [1] -166.29148  -40.12294</span></a>
 <a class="sourceLine" id="cb18-30" data-line-number="30"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-31" data-line-number="31"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[6]]</span></a>
-<a class="sourceLine" id="cb18-32" data-line-number="32"><span class="co">#&gt; [1] -58.37004  55.17000</span></a>
+<a class="sourceLine" id="cb18-32" data-line-number="32"><span class="co">#&gt; [1] 179.80275 -39.91911</span></a>
 <a class="sourceLine" id="cb18-33" data-line-number="33"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-34" data-line-number="34"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[7]]</span></a>
-<a class="sourceLine" id="cb18-35" data-line-number="35"><span class="co">#&gt; [1] -66.66952  55.20943</span></a>
+<a class="sourceLine" id="cb18-35" data-line-number="35"><span class="co">#&gt; [1] -179.22962  -37.29404</span></a>
 <a class="sourceLine" id="cb18-36" data-line-number="36"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-37" data-line-number="37"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[8]]</span></a>
-<a class="sourceLine" id="cb18-38" data-line-number="38"><span class="co">#&gt; [1] -70.87409  55.24613</span></a>
+<a class="sourceLine" id="cb18-38" data-line-number="38"><span class="co">#&gt; [1] -177.45059  -35.63585</span></a>
 <a class="sourceLine" id="cb18-39" data-line-number="39"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-40" data-line-number="40"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[9]]</span></a>
-<a class="sourceLine" id="cb18-41" data-line-number="41"><span class="co">#&gt; [1] -70.85499  56.05520</span></a>
+<a class="sourceLine" id="cb18-41" data-line-number="41"><span class="co">#&gt; [1] -176.5218  -31.5983</span></a>
 <a class="sourceLine" id="cb18-42" data-line-number="42"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-43" data-line-number="43"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[10]]</span></a>
-<a class="sourceLine" id="cb18-44" data-line-number="44"><span class="co">#&gt; [1] -60.98504  60.36082</span></a>
+<a class="sourceLine" id="cb18-44" data-line-number="44"><span class="co">#&gt; [1] -175.70122  -32.63338</span></a>
 <a class="sourceLine" id="cb18-45" data-line-number="45"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-46" data-line-number="46"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[11]]</span></a>
-<a class="sourceLine" id="cb18-47" data-line-number="47"><span class="co">#&gt; [1] -44.84972  66.39301</span></a>
+<a class="sourceLine" id="cb18-47" data-line-number="47"><span class="co">#&gt; [1] -170.36486  -30.22639</span></a>
 <a class="sourceLine" id="cb18-48" data-line-number="48"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-49" data-line-number="49"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb18-50" data-line-number="50"><span class="co">#&gt; </span></a>
@@ -302,19 +334,19 @@
 <a class="sourceLine" id="cb19-14" data-line-number="14"><span class="co">#&gt; $features[[1]]$geometry$coordinates</span></a>
 <a class="sourceLine" id="cb19-15" data-line-number="15"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]]</span></a>
 <a class="sourceLine" id="cb19-16" data-line-number="16"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[1]]</span></a>
-<a class="sourceLine" id="cb19-17" data-line-number="17"><span class="co">#&gt; [1] -179.30580  -69.22135</span></a>
+<a class="sourceLine" id="cb19-17" data-line-number="17"><span class="co">#&gt; [1] -157.17381  -24.41133</span></a>
 <a class="sourceLine" id="cb19-18" data-line-number="18"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb19-19" data-line-number="19"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[2]]</span></a>
-<a class="sourceLine" id="cb19-20" data-line-number="20"><span class="co">#&gt; [1] -170.04624  -71.46563</span></a>
+<a class="sourceLine" id="cb19-20" data-line-number="20"><span class="co">#&gt; [1] -163.8160  -22.2685</span></a>
 <a class="sourceLine" id="cb19-21" data-line-number="21"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb19-22" data-line-number="22"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[3]]</span></a>
-<a class="sourceLine" id="cb19-23" data-line-number="23"><span class="co">#&gt; [1] -163.33748  -76.39355</span></a>
+<a class="sourceLine" id="cb19-23" data-line-number="23"><span class="co">#&gt; [1] -169.36536  -12.88249</span></a>
 <a class="sourceLine" id="cb19-24" data-line-number="24"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb19-25" data-line-number="25"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[4]]</span></a>
-<a class="sourceLine" id="cb19-26" data-line-number="26"><span class="co">#&gt; [1] 177.04697 -63.39075</span></a>
+<a class="sourceLine" id="cb19-26" data-line-number="26"><span class="co">#&gt; [1] -162.63559  -14.51864</span></a>
 <a class="sourceLine" id="cb19-27" data-line-number="27"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb19-28" data-line-number="28"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[5]]</span></a>
-<a class="sourceLine" id="cb19-29" data-line-number="29"><span class="co">#&gt; [1] -179.30580  -69.22135</span></a>
+<a class="sourceLine" id="cb19-29" data-line-number="29"><span class="co">#&gt; [1] -157.17381  -24.41133</span></a>
 <a class="sourceLine" id="cb19-30" data-line-number="30"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb19-31" data-line-number="31"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb19-32" data-line-number="32"><span class="co">#&gt; </span></a>
@@ -343,37 +375,37 @@
 <a class="sourceLine" id="cb20-14" data-line-number="14"><span class="co">#&gt; $features[[1]]$geometry$coordinates</span></a>
 <a class="sourceLine" id="cb20-15" data-line-number="15"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]]</span></a>
 <a class="sourceLine" id="cb20-16" data-line-number="16"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[1]]</span></a>
-<a class="sourceLine" id="cb20-17" data-line-number="17"><span class="co">#&gt; [1] -141.20160   47.71862</span></a>
+<a class="sourceLine" id="cb20-17" data-line-number="17"><span class="co">#&gt; [1] 87.406121 -5.256218</span></a>
 <a class="sourceLine" id="cb20-18" data-line-number="18"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-19" data-line-number="19"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[2]]</span></a>
-<a class="sourceLine" id="cb20-20" data-line-number="20"><span class="co">#&gt; [1] -141.38985   46.59426</span></a>
+<a class="sourceLine" id="cb20-20" data-line-number="20"><span class="co">#&gt; [1] 89.020874 -7.282341</span></a>
 <a class="sourceLine" id="cb20-21" data-line-number="21"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-22" data-line-number="22"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[3]]</span></a>
-<a class="sourceLine" id="cb20-23" data-line-number="23"><span class="co">#&gt; [1] -139.43667   48.97485</span></a>
+<a class="sourceLine" id="cb20-23" data-line-number="23"><span class="co">#&gt; [1] 88.062608 -8.655299</span></a>
 <a class="sourceLine" id="cb20-24" data-line-number="24"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-25" data-line-number="25"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[4]]</span></a>
-<a class="sourceLine" id="cb20-26" data-line-number="26"><span class="co">#&gt; [1] -138.8017   45.2412</span></a>
+<a class="sourceLine" id="cb20-26" data-line-number="26"><span class="co">#&gt; [1]  89.86604 -10.63606</span></a>
 <a class="sourceLine" id="cb20-27" data-line-number="27"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-28" data-line-number="28"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[5]]</span></a>
-<a class="sourceLine" id="cb20-29" data-line-number="29"><span class="co">#&gt; [1] -140.0502   43.9087</span></a>
+<a class="sourceLine" id="cb20-29" data-line-number="29"><span class="co">#&gt; [1]  87.82848 -11.36967</span></a>
 <a class="sourceLine" id="cb20-30" data-line-number="30"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-31" data-line-number="31"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[6]]</span></a>
-<a class="sourceLine" id="cb20-32" data-line-number="32"><span class="co">#&gt; [1] -141.70863   44.64798</span></a>
+<a class="sourceLine" id="cb20-32" data-line-number="32"><span class="co">#&gt; [1]  85.62151 -12.95171</span></a>
 <a class="sourceLine" id="cb20-33" data-line-number="33"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-34" data-line-number="34"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[7]]</span></a>
-<a class="sourceLine" id="cb20-35" data-line-number="35"><span class="co">#&gt; [1] -145.87281   45.56945</span></a>
+<a class="sourceLine" id="cb20-35" data-line-number="35"><span class="co">#&gt; [1] 83.900693 -9.888303</span></a>
 <a class="sourceLine" id="cb20-36" data-line-number="36"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-37" data-line-number="37"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[8]]</span></a>
-<a class="sourceLine" id="cb20-38" data-line-number="38"><span class="co">#&gt; [1] -142.72063   45.63076</span></a>
+<a class="sourceLine" id="cb20-38" data-line-number="38"><span class="co">#&gt; [1] 84.57663 -9.34780</span></a>
 <a class="sourceLine" id="cb20-39" data-line-number="39"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-40" data-line-number="40"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[9]]</span></a>
-<a class="sourceLine" id="cb20-41" data-line-number="41"><span class="co">#&gt; [1] -143.65958   47.87156</span></a>
+<a class="sourceLine" id="cb20-41" data-line-number="41"><span class="co">#&gt; [1] 81.306175 -9.618767</span></a>
 <a class="sourceLine" id="cb20-42" data-line-number="42"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-43" data-line-number="43"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[10]]</span></a>
-<a class="sourceLine" id="cb20-44" data-line-number="44"><span class="co">#&gt; [1] -142.23562   47.54846</span></a>
+<a class="sourceLine" id="cb20-44" data-line-number="44"><span class="co">#&gt; [1] 81.944115 -5.942286</span></a>
 <a class="sourceLine" id="cb20-45" data-line-number="45"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-46" data-line-number="46"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[11]]</span></a>
-<a class="sourceLine" id="cb20-47" data-line-number="47"><span class="co">#&gt; [1] -141.20160   47.71862</span></a>
+<a class="sourceLine" id="cb20-47" data-line-number="47"><span class="co">#&gt; [1] 87.406121 -5.256218</span></a>
 <a class="sourceLine" id="cb20-48" data-line-number="48"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-49" data-line-number="49"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb20-50" data-line-number="50"><span class="co">#&gt; </span></a>
@@ -402,37 +434,37 @@
 <a class="sourceLine" id="cb21-14" data-line-number="14"><span class="co">#&gt; $features[[1]]$geometry$coordinates</span></a>
 <a class="sourceLine" id="cb21-15" data-line-number="15"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]]</span></a>
 <a class="sourceLine" id="cb21-16" data-line-number="16"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[1]]</span></a>
-<a class="sourceLine" id="cb21-17" data-line-number="17"><span class="co">#&gt; [1] -121.28790   54.04295</span></a>
+<a class="sourceLine" id="cb21-17" data-line-number="17"><span class="co">#&gt; [1] -110.24008   55.93412</span></a>
 <a class="sourceLine" id="cb21-18" data-line-number="18"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-19" data-line-number="19"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[2]]</span></a>
-<a class="sourceLine" id="cb21-20" data-line-number="20"><span class="co">#&gt; [1] -118.38686   50.44916</span></a>
+<a class="sourceLine" id="cb21-20" data-line-number="20"><span class="co">#&gt; [1] -108.08220   54.77447</span></a>
 <a class="sourceLine" id="cb21-21" data-line-number="21"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-22" data-line-number="22"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[3]]</span></a>
-<a class="sourceLine" id="cb21-23" data-line-number="23"><span class="co">#&gt; [1] -131.2884   44.8270</span></a>
+<a class="sourceLine" id="cb21-23" data-line-number="23"><span class="co">#&gt; [1] -118.77819   53.74738</span></a>
 <a class="sourceLine" id="cb21-24" data-line-number="24"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-25" data-line-number="25"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[4]]</span></a>
-<a class="sourceLine" id="cb21-26" data-line-number="26"><span class="co">#&gt; [1] -129.80191   51.84119</span></a>
+<a class="sourceLine" id="cb21-26" data-line-number="26"><span class="co">#&gt; [1] -115.99977   52.24337</span></a>
 <a class="sourceLine" id="cb21-27" data-line-number="27"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-28" data-line-number="28"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[5]]</span></a>
-<a class="sourceLine" id="cb21-29" data-line-number="29"><span class="co">#&gt; [1] -131.89650   52.58981</span></a>
+<a class="sourceLine" id="cb21-29" data-line-number="29"><span class="co">#&gt; [1] -119.76781   46.56185</span></a>
 <a class="sourceLine" id="cb21-30" data-line-number="30"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-31" data-line-number="31"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[6]]</span></a>
-<a class="sourceLine" id="cb21-32" data-line-number="32"><span class="co">#&gt; [1] -141.29963   50.93448</span></a>
+<a class="sourceLine" id="cb21-32" data-line-number="32"><span class="co">#&gt; [1] -127.18359   50.53978</span></a>
 <a class="sourceLine" id="cb21-33" data-line-number="33"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-34" data-line-number="34"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[7]]</span></a>
-<a class="sourceLine" id="cb21-35" data-line-number="35"><span class="co">#&gt; [1] -129.50670   55.10155</span></a>
+<a class="sourceLine" id="cb21-35" data-line-number="35"><span class="co">#&gt; [1] -127.86478   53.72217</span></a>
 <a class="sourceLine" id="cb21-36" data-line-number="36"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-37" data-line-number="37"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[8]]</span></a>
-<a class="sourceLine" id="cb21-38" data-line-number="38"><span class="co">#&gt; [1] -127.95129   55.76608</span></a>
+<a class="sourceLine" id="cb21-38" data-line-number="38"><span class="co">#&gt; [1] -127.79129   54.12447</span></a>
 <a class="sourceLine" id="cb21-39" data-line-number="39"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-40" data-line-number="40"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[9]]</span></a>
-<a class="sourceLine" id="cb21-41" data-line-number="41"><span class="co">#&gt; [1] -126.57603   54.31859</span></a>
+<a class="sourceLine" id="cb21-41" data-line-number="41"><span class="co">#&gt; [1] -131.77062   54.54768</span></a>
 <a class="sourceLine" id="cb21-42" data-line-number="42"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-43" data-line-number="43"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[10]]</span></a>
-<a class="sourceLine" id="cb21-44" data-line-number="44"><span class="co">#&gt; [1] -126.58119   54.86745</span></a>
+<a class="sourceLine" id="cb21-44" data-line-number="44"><span class="co">#&gt; [1] -129.14784   56.37819</span></a>
 <a class="sourceLine" id="cb21-45" data-line-number="45"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-46" data-line-number="46"><span class="co">#&gt; $features[[1]]$geometry$coordinates[[1]][[11]]</span></a>
-<a class="sourceLine" id="cb21-47" data-line-number="47"><span class="co">#&gt; [1] -121.28790   54.04295</span></a>
+<a class="sourceLine" id="cb21-47" data-line-number="47"><span class="co">#&gt; [1] -110.24008   55.93412</span></a>
 <a class="sourceLine" id="cb21-48" data-line-number="48"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-49" data-line-number="49"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-50" data-line-number="50"><span class="co">#&gt; </span></a>
@@ -444,7 +476,7 @@
 <a class="sourceLine" id="cb21-56" data-line-number="56"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb21-57" data-line-number="57"><span class="co">#&gt; attr(,"class")</span></a>
 <a class="sourceLine" id="cb21-58" data-line-number="58"><span class="co">#&gt; [1] "geo_list"</span></a></code></pre></div>
-</section></section>
+</div>
 </div>
   </div>
 
@@ -469,11 +501,13 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
 </div>
+
+  
 
   </body>
 </html>
