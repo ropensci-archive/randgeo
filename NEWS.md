@@ -1,9 +1,14 @@
-randgeo 0.2.3.9100
+randgeo 0.3.0
 =============
 
 ### NEW FEATURES
 
 * Gains `geo_linestring` and `wkt_linestring` ([#13](https://github.com/ropensci/randgeo/pull/13)) thanks to @samuelbosch
+* All `geo_*` functions output lists - they all gain a S3 class `geo_list` to be in line with `geojsonio` outputs
+
+### MINOR IMPROVEMENTS
+
+* fix placement of image used in readme that's CRAN compliant
 
 
 randgeo 0.2.0

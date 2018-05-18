@@ -1,9 +1,8 @@
 ## Test environments
 
-* local OS X install, R 3.3.2
-* ubuntu 12.04 (on travis-ci), R 3.3.2
+* local OS X install, R 3.5.0
+* ubuntu 12.04 (on travis-ci), R 3.5.0
 * win-builder (devel and release)
-* R-hub (Windows R-devel, Ubuntu R-release, Fedora R-devel)
 
 ## R CMD check results
 
@@ -12,7 +11,7 @@
   License components with restrictions and base license permitting such:
     MIT + file LICENSE
   File 'LICENSE':
-    YEAR: 2017
+    YEAR: 2018
     COPYRIGHT HOLDER: Scott Chamberlain
 
 ## Reverse dependencies
@@ -21,9 +20,9 @@ There are no reverse dependencies.
 
 ---
 
-This version makes a number of improvements, including making random points
-evenly distributed on the (earth) sphere, and making sizes of random shapes 
-according to great circle distance from the center of the shape.
+This version adds two new functions `geo_linestring` and `wkt_linestring` 
+to make randgeom linestrings as geojson or wkt, respectively. Also fixes 
+placement of images used in readme.
 
 Thanks!
 Scott Chamberlain
