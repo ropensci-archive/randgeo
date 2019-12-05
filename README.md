@@ -40,7 +40,7 @@ Package API:
 
 ## Docs
 
-<https://ropensci.github.io/randgeo/>
+<https://docs.ropensci.org/randgeo/>
 
 ## Install
 
