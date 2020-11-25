@@ -4,8 +4,13 @@
 \alias{geo_linestring}
 \title{Random GeoJSON linestring}
 \usage{
-geo_linestring(count = 1, num_vertices = 10, max_length = 0.001,
-  max_rotation = pi/8, bbox = NULL)
+geo_linestring(
+  count = 1,
+  num_vertices = 10,
+  max_length = 0.001,
+  max_rotation = pi/8,
+  bbox = NULL
+)
 }
 \arguments{
 \item{count}{(integer/numeric) number of Polygons. Default: 1}

@@ -4,8 +4,13 @@
 \alias{wkt_polygon}
 \title{Random WKT polygon}
 \usage{
-wkt_polygon(count = 1, num_vertices = 10, max_radial_length = 10,
-  bbox = NULL, fmt = 7)
+wkt_polygon(
+  count = 1,
+  num_vertices = 10,
+  max_radial_length = 10,
+  bbox = NULL,
+  fmt = 7
+)
 }
 \arguments{
 \item{count}{(integer/numeric) number of Polygons. Default: 1}

@@ -4,8 +4,7 @@
 \alias{geo_polygon}
 \title{Random GeoJSON polygon}
 \usage{
-geo_polygon(count = 1, num_vertices = 10, max_radial_length = 10,
-  bbox = NULL)
+geo_polygon(count = 1, num_vertices = 10, max_radial_length = 10, bbox = NULL)
 }
 \arguments{
 \item{count}{(integer/numeric) number of Polygons. Default: 1}

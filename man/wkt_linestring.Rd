@@ -4,8 +4,14 @@
 \alias{wkt_linestring}
 \title{Random WKT linestring}
 \usage{
-wkt_linestring(count = 1, num_vertices = 10, max_length = 1e-04,
-  max_rotation = pi/8, bbox = NULL, fmt = 7)
+wkt_linestring(
+  count = 1,
+  num_vertices = 10,
+  max_length = 1e-04,
+  max_rotation = pi/8,
+  bbox = NULL,
+  fmt = 7
+)
 }
 \arguments{
 \item{count}{(integer/numeric) number of Polygons. Default: 1}
